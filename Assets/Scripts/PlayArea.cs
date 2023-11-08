@@ -23,7 +23,7 @@ public class PlayArea : MonoBehaviour
 
     public void BuildPlayArea(int gridWidth, int gridHeight)
     {
-        grid = new Grid2D(gridWidth, gridHeight, new Vector2(1, 1), new Vector2(-gridWidth, -gridHeight / 2));
+        grid = new Grid2D(gridWidth, gridHeight, new Vector2(1, 1), new Vector2(-gridWidth / 2, -gridHeight / 2));
         cells = new GameObject[grid.Size];
         
         for(int i = 0; i < grid.Size; i++) 

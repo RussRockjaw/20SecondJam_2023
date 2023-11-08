@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     public PlayArea playArea;
     private Vector2[][] gamePieceData;
+    private List<Shape> shapes;
 
     public List<Color> gamePieceColors = new List<Color>() 
     {
@@ -29,10 +30,16 @@ public class GameController : MonoBehaviour
     {
         playArea.BuildPlayArea(5, 5);
         gamePieceData = GenerateGamePieces(6);
+        shapes = new List<Shape>();
+
+        float degSplit = 360 / gamePieceData.Length;
 
         for(int i = 0; i < gamePieceData.Length; i++)
         {
-            playArea.ColorTheCells(gamePieceData[i], Random.ColorHSV());
+            //playArea.ColorTheCells(gamePieceData[i], Random.ColorHSV());
+            
+            Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, 5.0f);
+            shapes.Add(new Shape(gamePieceData[i], new Vector3(circlePos.x, circlePos.y, 0)));
         }
     }
 
@@ -84,12 +91,17 @@ public class GameController : MonoBehaviour
 
     private Vector2[] RandomWalk(int start, int steps, bool[] cellsClaimed)
     {
-        Vector2 currPos = playArea.Index2Cart(start);
-        cellsClaimed[start] = true;
+        Vector2 currentGridPosition = playArea.Index2Cart(start);
+        Vector2 currentPiecePosition = new Vector2(0, 0);
+        List<Vector2> tracker = new List<Vector2>();
         List<Vector2> results = new List<Vector2>();
-        results.Add(currPos);
+
+        cellsClaimed[start] = true;
+        tracker.Add(currentGridPosition);
+        results.Add(currentPiecePosition);
+
         Debug.Log("Generating New Piece");
-        Debug.Log($"starting at {currPos}");
+        Debug.Log($"starting at {currentGridPosition}");
 
         for(int i = 1; i < steps; i++)
         {
@@ -97,7 +109,8 @@ public class GameController : MonoBehaviour
             for(int j = 0; j < 4; j++)
             {
                 // choose a random direction
-                Vector2 targetGridPos = currPos + directions[Random.Range(0, 4)];
+                Vector2 d = directions[Random.Range(0, 4)];
+                Vector2 targetGridPos = currentGridPosition + d;
                 int targetPosIndex = playArea.Cart2Index(targetGridPos);
                 Debug.Log($"target pos: {targetGridPos}");
                 Debug.Log($"target index: {targetPosIndex}");
@@ -106,9 +119,12 @@ public class GameController : MonoBehaviour
                 if(playArea.GetGrid().Contains(targetGridPos) && !cellsClaimed[targetPosIndex])
                 {
                     Debug.Log($"Open spot found at {targetGridPos}");
-                    // if it is available, claim it and add it to results
-                    results.Add(targetGridPos);
-                    currPos = targetGridPos;
+
+                    currentGridPosition = targetGridPos;
+                    currentPiecePosition += d;
+                    tracker.Add(currentGridPosition);
+                    results.Add(currentPiecePosition);
+
                     cellsClaimed[targetPosIndex] = true;
                     break;
                 }
