@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class ShapeGenerator : MonoBehaviour
 {
+    public GameObject piece;
     public Vector2[] piece1;
     public Vector2[] piece2;
     public Vector2[] piece3;
     public Vector2[] piece4;
     public Vector2[] piece5;
     
-    public Vector3[] originPoints;
 
     // Start is called before the first frame update
     void Start()
     {
-        Shape shape1 = new Shape(piece1, originPoints[0]);
-        Shape shape2 = new Shape(piece2, originPoints[1]);
-        Shape shape3 = new Shape(piece3, originPoints[2]);
-        Shape shape4 = new Shape(piece4, originPoints[3]);
-        Shape shape5 = new Shape(piece5, originPoints[4]);
+        GameObject obj1 = Instantiate(piece, new Vector3(0, 0), Quaternion.identity);
+        GameObject obj2 = Instantiate(piece, new Vector3(0, 1), Quaternion.identity);
+        GameObject obj3 = Instantiate(piece, new Vector3(2, 1), Quaternion.identity);
+        GameObject obj4 = Instantiate(piece, new Vector3(3, 1), Quaternion.identity);
+        GameObject obj5 = Instantiate(piece, new Vector3(2, 3), Quaternion.identity);
+        
+        obj1.transform.GetComponent<Shape>().CreateMesh(piece1);
+        obj2.transform.GetComponent<Shape>().CreateMesh(piece2);
+        obj3.transform.GetComponent<Shape>().CreateMesh(piece3);
+        obj4.transform.GetComponent<Shape>().CreateMesh(piece4);
+        obj5.transform.GetComponent<Shape>().CreateMesh(piece5);
     }
 
     // Update is called once per frame
