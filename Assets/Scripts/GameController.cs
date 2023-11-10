@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
             GameObject g = Instantiate(prefabGamePiece);
             Shape s = g.GetComponent<Shape>();
             s.CreateMesh(data[i]);
-            g.AddComponent<PolygonCollider2D>();
+            //g.transform.GetChild(0).gameObject.AddComponent<PolygonCollider2D>();
             s.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
         }
     }
