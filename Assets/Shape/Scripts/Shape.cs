@@ -17,6 +17,7 @@ public class Shape : MonoBehaviour
         this.nodePositions = nodePositions;
         //Add components to GameObjects
         MeshFilter meshFilter = this.gameObject.transform.GetChild(0).gameObject.AddComponent(typeof(MeshFilter)) as MeshFilter;
+        MeshCollider meshCollider = this.gameObject.transform.GetChild(0).gameObject.AddComponent(typeof(MeshCollider)) as MeshCollider;
         MeshRenderer meshRenderer = this.gameObject.transform.GetChild(0).gameObject.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
         meshRenderer.material = new Material(Shader.Find("Sprites/Default"));
         meshRenderer.material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1);
@@ -62,5 +63,24 @@ public class Shape : MonoBehaviour
         mesh.triangles = tris;
         mesh.name = "Piece";
         meshFilter.mesh = mesh;
+        meshCollider.sharedMesh = mesh;
     }
+
+    public Vector2[] LocalToWorld()
+    {
+        Vector2[] worldCoords = new Vector2[nodePositions.Length];
+        for(int i = 0; i < nodePositions.Length; i++)
+            worldCoords[i] = transform.TransformPoint(nodePositions[i]);
+        return worldCoords;
+    }
+
+    public void SetNodePositions(Vector2[] positions)
+    {
+        nodePositions = positions;
+    }
+
+    public Vector2[] GetNodePositions()
+    {
+        return nodePositions;
+    }    
 }

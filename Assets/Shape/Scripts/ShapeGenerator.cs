@@ -26,6 +26,13 @@ public class ShapeGenerator : MonoBehaviour
         obj3.transform.GetComponent<Shape>().CreateMesh(piece3);
         obj4.transform.GetComponent<Shape>().CreateMesh(piece4);
         obj5.transform.GetComponent<Shape>().CreateMesh(piece5);
+        
+        Vector2[] localPositions = obj2.GetComponent<Shape>().GetNodePositions();
+        Vector2[] globalPositions = obj2.GetComponent<Shape>().LocalToWorld();
+        for(int i = 0; i < localPositions.Length; i++)
+        {
+            Debug.Log("Local Position: " + localPositions[i] + "-> Global Position: " + globalPositions[i]);
+        }
     }
 
     // Update is called once per frame
