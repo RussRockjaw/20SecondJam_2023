@@ -4,91 +4,65 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Cart2Index	./Assets/Scripts\Grid2D.cs	/^    public int Cart2Index(Vector2 pos)$/;"	m	class:Grid2D
-Cart2Index	./Assets/Scripts\Grid2D.cs	/^    public int Cart2Index(int x, int y)$/;"	m	class:Grid2D
-Cart2Index	./Assets/Scripts\Grid2D.cs	/^    static public int Cart2Index(int x, int y, int cols)$/;"	m	class:Grid2D
-Cart2World	./Assets/Scripts\Grid2D.cs	/^    public Vector3 Cart2World(Vector2 gridPos)$/;"	m	class:Grid2D
-Cart2World	./Assets/Scripts\Grid2D.cs	/^    public Vector3 Cart2World(int x, int y)$/;"	m	class:Grid2D
-CellScale	./Assets/Scripts\Grid2D.cs	/^    public Vector2 CellScale { get { return cellScale; } private set {} }$/;"	p	class:Grid2D
-Cols	./Assets/Scripts\Grid2D.cs	/^    public int Cols { get { return cols; } private set {} }$/;"	p	class:Grid2D
-Contains	./Assets/Scripts\Grid2D.cs	/^    public bool Contains(Vector2 gridpos)$/;"	m	class:Grid2D
-Contains	./Assets/Scripts\Grid2D.cs	/^    public bool Contains(Vector3 pos)$/;"	m	class:Grid2D
-Contains	./Assets/Scripts\Grid2D.cs	/^    public bool Contains(int index)$/;"	m	class:Grid2D
-Contains	./Assets/Scripts\Grid2D.cs	/^    public bool Contains(int x, int y)$/;"	m	class:Grid2D
-CreatMesh	./Assets/Shape\Scripts\Shape.cs	/^    private void CreatMesh()$/;"	m	class:Shape	file:
-Grid2D	./Assets/Scripts\Grid2D.cs	/^    public Grid2D(int cols, int rows, Vector2 cellScale, Vector2 offsetFromZero, bool zFlag = false)$/;"	m	class:Grid2D
-Grid2D	./Assets/Scripts\Grid2D.cs	/^    public Grid2D(int cols, int rows, bool zFlag = false)$/;"	m	class:Grid2D
-Grid2D	./Assets/Scripts\Grid2D.cs	/^public class Grid2D$/;"	c
-Index2Cart	./Assets/Scripts\Grid2D.cs	/^    public Vector2 Index2Cart(int index)$/;"	m	class:Grid2D
-Index2World	./Assets/Scripts\Grid2D.cs	/^    public Vector3 Index2World(int index)$/;"	m	class:Grid2D
-PlayArea	./Assets/Scripts\PlayArea.cs	/^public class PlayArea : MonoBehaviour$/;"	c
-Rows	./Assets/Scripts\Grid2D.cs	/^    public int Rows { get { return rows; } private set {} }$/;"	p	class:Grid2D
-Shape	./Assets/Shape\Scripts\Shape.cs	/^    public Shape(Vector2[] nodePositions)$/;"	m	class:Shape
-Shape	./Assets/Shape\Scripts\Shape.cs	/^public class Shape : MonoBehaviour$/;"	c
-ShapeGenerator	./Assets/Shape\Scripts\ShapeGenerator.cs	/^public class ShapeGenerator : MonoBehaviour$/;"	c
-Size	./Assets/Scripts\Grid2D.cs	/^    public int Size { get { return cols * rows; } private set {} }$/;"	p	class:Grid2D
-Start	./Assets/Scripts\PlayArea.cs	/^    void Start()$/;"	m	class:PlayArea	file:
-Start	./Assets/Shape\Scripts\ShapeGenerator.cs	/^    void Start()$/;"	m	class:ShapeGenerator	file:
-Update	./Assets/Scripts\PlayArea.cs	/^    void Update()$/;"	m	class:PlayArea	file:
-Update	./Assets/Shape\Scripts\ShapeGenerator.cs	/^    void Update()$/;"	m	class:ShapeGenerator	file:
-World2Cart	./Assets/Scripts\Grid2D.cs	/^    public Vector2 World2Cart(Vector3 worldPos)$/;"	m	class:Grid2D
-World2Index	./Assets/Scripts\Grid2D.cs	/^    public int World2Index(Vector3 pos)$/;"	m	class:Grid2D
-cellScale	./Assets/Scripts\Grid2D.cs	/^    private Vector2 cellScale;$/;"	f	class:Grid2D	file:
-cells	./Assets/Scripts\PlayArea.cs	/^    public GameObject[] cells;$/;"	f	class:PlayArea
-cols	./Assets/Scripts\Grid2D.cs	/^    private int cols;$/;"	f	class:Grid2D	file:
-component	./Assets/Shape\ShapeTest.unity	/^  - component: {fileID: 2068452062}$/;"	p
-component	./Assets/Shape\ShapeTest.unity	/^  - component: {fileID: 2068452063}$/;"	p
-component	./Assets/Shape\ShapeTest.unity	/^  - component: {fileID: 2068452064}$/;"	p
-externalObjects	./Assets/Prefabs.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Scenes.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Scripts.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Scripts\Grid2D.cs.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Scripts\PlayArea.cs.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Shape.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Shape\Scripts.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Shape\Scripts\Shape.cs.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Shape\Scripts\ShapeGenerator.cs.meta	/^  externalObjects: {}$/;"	p
-externalObjects	./Assets/Shape\ShapeTest.unity.meta	/^  externalObjects: {}$/;"	p
-grid	./Assets/Scripts\PlayArea.cs	/^    public Grid2D grid;$/;"	f	class:PlayArea
-icon	./Assets/Scripts\Grid2D.cs.meta	/^  icon: {instanceID: 0}$/;"	p
-icon	./Assets/Scripts\PlayArea.cs.meta	/^  icon: {instanceID: 0}$/;"	p
-icon	./Assets/Shape\Scripts\Shape.cs.meta	/^  icon: {instanceID: 0}$/;"	p
-icon	./Assets/Shape\Scripts\ShapeGenerator.cs.meta	/^  icon: {instanceID: 0}$/;"	p
-m_AmbientEquatorColor	./Assets/Shape\ShapeTest.unity	/^  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}$/;"	p
-m_AmbientGroundColor	./Assets/Shape\ShapeTest.unity	/^  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}$/;"	p
-m_AmbientSkyColor	./Assets/Shape\ShapeTest.unity	/^  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}$/;"	p
-m_BackGroundColor	./Assets/Shape\ShapeTest.unity	/^  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}$/;"	p
-m_CorrespondingSourceObject	./Assets/Shape\ShapeTest.unity	/^  m_CorrespondingSourceObject: {fileID: 0}$/;"	p
-m_Curvature	./Assets/Shape\ShapeTest.unity	/^  m_Curvature: {x: 2, y: 11}$/;"	p
-m_CustomReflection	./Assets/Shape\ShapeTest.unity	/^  m_CustomReflection: {fileID: 0}$/;"	p
-m_Father	./Assets/Shape\ShapeTest.unity	/^  m_Father: {fileID: 0}$/;"	p
-m_FogColor	./Assets/Shape\ShapeTest.unity	/^  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}$/;"	p
-m_GameObject	./Assets/Shape\ShapeTest.unity	/^  m_GameObject: {fileID: 2068452061}$/;"	p
-m_HaloTexture	./Assets/Shape\ShapeTest.unity	/^  m_HaloTexture: {fileID: 0}$/;"	p
-m_Icon	./Assets/Shape\ShapeTest.unity	/^  m_Icon: {fileID: 0}$/;"	p
-m_IndirectSpecularColor	./Assets/Shape\ShapeTest.unity	/^  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}$/;"	p
-m_LensShift	./Assets/Shape\ShapeTest.unity	/^  m_LensShift: {x: 0, y: 0}$/;"	p
-m_LightingDataAsset	./Assets/Shape\ShapeTest.unity	/^  m_LightingDataAsset: {fileID: 0}$/;"	p
-m_LightingSettings	./Assets/Shape\ShapeTest.unity	/^  m_LightingSettings: {fileID: 0}$/;"	p
-m_LightmapParameters	./Assets/Shape\ShapeTest.unity	/^    m_LightmapParameters: {fileID: 0}$/;"	p
-m_LocalEulerAnglesHint	./Assets/Shape\ShapeTest.unity	/^  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}$/;"	p
-m_LocalPosition	./Assets/Shape\ShapeTest.unity	/^  m_LocalPosition: {x: 0, y: 0, z: -10}$/;"	p
-m_LocalRotation	./Assets/Shape\ShapeTest.unity	/^  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}$/;"	p
-m_LocalScale	./Assets/Shape\ShapeTest.unity	/^  m_LocalScale: {x: 1, y: 1, z: 1}$/;"	p
-m_NavMeshData	./Assets/Shape\ShapeTest.unity	/^  m_NavMeshData: {fileID: 0}$/;"	p
-m_OcclusionCullingData	./Assets/Shape\ShapeTest.unity	/^  m_OcclusionCullingData: {fileID: 0}$/;"	p
-m_PrefabAsset	./Assets/Shape\ShapeTest.unity	/^  m_PrefabAsset: {fileID: 0}$/;"	p
-m_PrefabInstance	./Assets/Shape\ShapeTest.unity	/^  m_PrefabInstance: {fileID: 0}$/;"	p
-m_Roots	./Assets/Shape\ShapeTest.unity	/^  m_Roots:$/;"	p
-m_SensorSize	./Assets/Shape\ShapeTest.unity	/^  m_SensorSize: {x: 36, y: 24}$/;"	p
-m_SkyboxMaterial	./Assets/Shape\ShapeTest.unity	/^  m_SkyboxMaterial: {fileID: 0}$/;"	p
-m_SpotCookie	./Assets/Shape\ShapeTest.unity	/^  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}$/;"	p
-m_SubtractiveShadowColor	./Assets/Shape\ShapeTest.unity	/^  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}$/;"	p
-m_Sun	./Assets/Shape\ShapeTest.unity	/^  m_Sun: {fileID: 0}$/;"	p
-m_TargetTexture	./Assets/Shape\ShapeTest.unity	/^  m_TargetTexture: {fileID: 0}$/;"	p
-nodeCount	./Assets/Shape\Scripts\Shape.cs	/^    private int nodeCount;$/;"	f	class:Shape	file:
-nodePositions	./Assets/Shape\Scripts\Shape.cs	/^    private Vector2[] nodePositions;$/;"	f	class:Shape	file:
-offsetFromZero	./Assets/Scripts\Grid2D.cs	/^    private Vector2 offsetFromZero; $/;"	f	class:Grid2D	file:
-prefabCell	./Assets/Scripts\PlayArea.cs	/^    public GameObject prefabCell;$/;"	f	class:PlayArea
-rows	./Assets/Scripts\Grid2D.cs	/^    private int rows;$/;"	f	class:Grid2D	file:
-useZ	./Assets/Scripts\Grid2D.cs	/^    private bool useZ = false;$/;"	f	class:Grid2D	file:
+BinaryStep	.\Assets\Scripts\Math.cs	/^        public static double BinaryStep(double v)$/;"	m	class:KE.Math
+BuildPlayArea	.\Assets\Scripts\PlayArea.cs	/^    public void BuildPlayArea(int gridWidth, int gridHeight)$/;"	m	class:PlayArea
+Cart2Index	.\Assets\Scripts\Grid2D.cs	/^    public int Cart2Index(Vector2 pos)$/;"	m	class:Grid2D
+Cart2Index	.\Assets\Scripts\Grid2D.cs	/^    public int Cart2Index(int x, int y)$/;"	m	class:Grid2D
+Cart2Index	.\Assets\Scripts\Grid2D.cs	/^    static public int Cart2Index(int x, int y, int cols)$/;"	m	class:Grid2D
+Cart2Index	.\Assets\Scripts\PlayArea.cs	/^    public int Cart2Index(Vector2 p)$/;"	m	class:PlayArea
+Cart2World	.\Assets\Scripts\Grid2D.cs	/^    public Vector3 Cart2World(Vector2 gridPos)$/;"	m	class:Grid2D
+Cart2World	.\Assets\Scripts\Grid2D.cs	/^    public Vector3 Cart2World(int x, int y)$/;"	m	class:Grid2D
+CellScale	.\Assets\Scripts\Grid2D.cs	/^    public Vector2 CellScale { get { return cellScale; } private set {} }$/;"	p	class:Grid2D
+ColorTheCells	.\Assets\Scripts\PlayArea.cs	/^    public void ColorTheCells(Vector2[] pos, Color c)$/;"	m	class:PlayArea
+Cols	.\Assets\Scripts\Grid2D.cs	/^    public int Cols { get { return cols; } private set {} }$/;"	p	class:Grid2D
+Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(Vector2 gridpos)$/;"	m	class:Grid2D
+Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(Vector3 pos)$/;"	m	class:Grid2D
+Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(int index)$/;"	m	class:Grid2D
+Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(int x, int y)$/;"	m	class:Grid2D
+GameController	.\Assets\Scripts\GameController.cs	/^public class GameController : MonoBehaviour$/;"	c
+GenerateGamePieceData	.\Assets\Scripts\GameController.cs	/^    public Vector2[][] GenerateGamePieceData(int maxPieceSize)$/;"	m	class:GameController
+GetGrid	.\Assets\Scripts\PlayArea.cs	/^    public Grid2D GetGrid()$/;"	m	class:PlayArea
+GetPositionAroundCirlce	.\Assets\Scripts\Math.cs	/^        public static Vector2 GetPositionAroundCirlce(float angle, float radius)$/;"	m	class:KE.Math
+Grid2D	.\Assets\Scripts\Grid2D.cs	/^    public Grid2D(int cols, int rows, Vector2 cellScale, Vector2 offsetFromZero, bool zFlag = false)$/;"	m	class:Grid2D
+Grid2D	.\Assets\Scripts\Grid2D.cs	/^    public Grid2D(int cols, int rows, bool zFlag = false)$/;"	m	class:Grid2D
+Grid2D	.\Assets\Scripts\Grid2D.cs	/^public class Grid2D$/;"	c
+Index2Cart	.\Assets\Scripts\Grid2D.cs	/^    public Vector2 Index2Cart(int index)$/;"	m	class:Grid2D
+Index2Cart	.\Assets\Scripts\PlayArea.cs	/^    public Vector2 Index2Cart(int n)$/;"	m	class:PlayArea
+Index2World	.\Assets\Scripts\Grid2D.cs	/^    public Vector3 Index2World(int index)$/;"	m	class:Grid2D
+InverseSmoothStep	.\Assets\Scripts\Math.cs	/^        public static float InverseSmoothStep(float ratio)$/;"	m	class:KE.Math
+KE	.\Assets\Scripts\Math.cs	/^namespace KE $/;"	n
+LeakyRelu	.\Assets\Scripts\Math.cs	/^        public static double LeakyRelu(double v)$/;"	m	class:KE.Math
+Math	.\Assets\Scripts\Math.cs	/^    public static class Math $/;"	c	namespace:KE
+PlayArea	.\Assets\Scripts\PlayArea.cs	/^public class PlayArea : MonoBehaviour$/;"	c
+RandomWalk	.\Assets\Scripts\GameController.cs	/^    private Vector2[] RandomWalk(int start, int steps, bool[] cellsClaimed)$/;"	m	class:GameController	file:
+Relu	.\Assets\Scripts\Math.cs	/^        public static double Relu(double v)$/;"	m	class:KE.Math
+Rows	.\Assets\Scripts\Grid2D.cs	/^    public int Rows { get { return rows; } private set {} }$/;"	p	class:Grid2D
+Sigmoid	.\Assets\Scripts\Math.cs	/^        public static double Sigmoid(double v)$/;"	m	class:KE.Math
+SineWave	.\Assets\Scripts\Math.cs	/^        public static float SineWave(float theta, float amplitude, float baseline)$/;"	m	class:KE.Math
+Sinusoid	.\Assets\Scripts\Math.cs	/^        public static double Sinusoid(double v)$/;"	m	class:KE.Math
+Size	.\Assets\Scripts\Grid2D.cs	/^    public int Size { get { return cols * rows; } private set {} }$/;"	p	class:Grid2D
+Size	.\Assets\Scripts\PlayArea.cs	/^    public int Size()$/;"	m	class:PlayArea
+SmootherStep	.\Assets\Scripts\Math.cs	/^        public static float SmootherStep(float ratio)$/;"	m	class:KE.Math
+SoftSign	.\Assets\Scripts\Math.cs	/^        public static double SoftSign(double v)$/;"	m	class:KE.Math
+SpawnGamePieces	.\Assets\Scripts\GameController.cs	/^    public void SpawnGamePieces(Vector2[][] data)$/;"	m	class:GameController
+SplitCells	.\Assets\Scripts\GameController.cs	/^    private int[] SplitCells(int n, int max)$/;"	m	class:GameController	file:
+Start	.\Assets\Scripts\GameController.cs	/^    void Start()$/;"	m	class:GameController	file:
+Start	.\Assets\Scripts\PlayArea.cs	/^    void Start()$/;"	m	class:PlayArea	file:
+TanH	.\Assets\Scripts\Math.cs	/^        public static double TanH(double v)$/;"	m	class:KE.Math
+Update	.\Assets\Scripts\PlayArea.cs	/^    void Update()$/;"	m	class:PlayArea	file:
+World2Cart	.\Assets\Scripts\Grid2D.cs	/^    public Vector2 World2Cart(Vector3 worldPos)$/;"	m	class:Grid2D
+World2Index	.\Assets\Scripts\Grid2D.cs	/^    public int World2Index(Vector3 pos)$/;"	m	class:Grid2D
+cellScale	.\Assets\Scripts\Grid2D.cs	/^    private Vector2 cellScale;$/;"	f	class:Grid2D	file:
+cells	.\Assets\Scripts\PlayArea.cs	/^    private GameObject[] cells;$/;"	f	class:PlayArea	file:
+cols	.\Assets\Scripts\Grid2D.cs	/^    private int cols;$/;"	f	class:Grid2D	file:
+directions	.\Assets\Scripts\GameController.cs	/^    private Vector2[] directions = new Vector2[] $/;"	f	class:GameController	file:
+gamePieceColors	.\Assets\Scripts\GameController.cs	/^    public List<Color> gamePieceColors = new List<Color>() $/;"	f	class:GameController
+gamePieceData	.\Assets\Scripts\GameController.cs	/^    private Vector2[][] gamePieceData;$/;"	f	class:GameController	file:
+grid	.\Assets\Scripts\PlayArea.cs	/^    private Grid2D grid;$/;"	f	class:PlayArea	file:
+offsetFromZero	.\Assets\Scripts\Grid2D.cs	/^    private Vector2 offsetFromZero; $/;"	f	class:Grid2D	file:
+playArea	.\Assets\Scripts\GameController.cs	/^    public PlayArea playArea;$/;"	f	class:GameController
+prefabCell	.\Assets\Scripts\PlayArea.cs	/^    public GameObject prefabCell;$/;"	f	class:PlayArea
+prefabGamePiece	.\Assets\Scripts\GameController.cs	/^    public GameObject prefabGamePiece;$/;"	f	class:GameController
+rows	.\Assets\Scripts\Grid2D.cs	/^    private int rows;$/;"	f	class:Grid2D	file:
+shapes	.\Assets\Scripts\GameController.cs	/^    private List<Shape> shapes;$/;"	f	class:GameController	file:
+useZ	.\Assets\Scripts\Grid2D.cs	/^    private bool useZ = false;$/;"	f	class:Grid2D	file:

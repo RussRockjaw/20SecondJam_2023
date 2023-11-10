@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject prefabGamePiece;
     public PlayArea playArea;
+
     private Vector2[][] gamePieceData;
     private List<Shape> shapes;
+
 
     public List<Color> gamePieceColors = new List<Color>() 
     {
@@ -23,29 +26,34 @@ public class GameController : MonoBehaviour
         new Vector2(1, 0),
         new Vector2(0, -1),
         new Vector2(-1, 0),
-
     };
 
     void Start()
     {
         playArea.BuildPlayArea(5, 5);
-        gamePieceData = GenerateGamePieces(6);
+        gamePieceData = GenerateGamePieceData(6);
+        SpawnGamePieces(gamePieceData);
+    }
+
+    public void SpawnGamePieces(Vector2[][] data)
+    {
+        // TODO/feature: probably will want a way to actually delete the game objects
+        // clear the old list, if their is one
         shapes = new List<Shape>();
 
-        float degSplit = 360 / gamePieceData.Length;
+        float degSplit = 360 / data.Length;
 
-        for(int i = 0; i < gamePieceData.Length; i++)
+        for(int i = 0; i < data.Length; i++)
         {
-            //playArea.ColorTheCells(gamePieceData[i], Random.ColorHSV());
-            
             Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, 5.0f);
-            shapes.Add(new Shape(gamePieceData[i], new Vector3(circlePos.x, circlePos.y, 0)));
+            Shape s = Instantiate(prefabGamePiece).GetComponent<Shape>();
+            s.CreateMesh(data[i]);
+            s.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
         }
     }
 
 
-
-    public Vector2[][] GenerateGamePieces(int maxPieceSize)
+    public Vector2[][] GenerateGamePieceData(int maxPieceSize)
     {
         bool[] cellsClaimed = new bool[playArea.Size()];
         List<Vector2[]> result = new List<Vector2[]>();

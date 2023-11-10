@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e131754f27d9d3d468098054fb9540f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabGamePiece: {fileID: 1687940809680984622, guid: 294a580f7939ac443a272e02ab07cd2f, type: 3}
   playArea: {fileID: 682184975}
   gamePieceColors:
   - {r: 1, g: 0, b: 0, a: 1}
