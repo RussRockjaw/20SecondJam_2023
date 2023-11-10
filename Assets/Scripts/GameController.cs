@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
     private Vector2[][] gamePieceData;
     private List<Shape> shapes;
 
+    private GameObject heldPiece;
+    private Vector2 pickupOffset;
+
 
     public List<Color> gamePieceColors = new List<Color>() 
     {
@@ -35,6 +38,24 @@ public class GameController : MonoBehaviour
         SpawnGamePieces(gamePieceData);
     }
 
+    void Update()
+    {
+        if(heldPiece == null && Input.GetMouseButtonDown(0))
+        {
+            HandleLeftClick();
+        }
+        else if(heldPiece != null && !Input.GetMouseButton(0))
+        {
+            heldPiece = null;
+            // TODO/incomplete: here we need to also check the playArea grid and stuff
+        }
+
+        if(heldPiece != null)
+        {
+            HandleHolding();
+        }
+    }
+
     public void SpawnGamePieces(Vector2[][] data)
     {
         // TODO/feature: probably will want a way to actually delete the game objects
@@ -46,8 +67,10 @@ public class GameController : MonoBehaviour
         for(int i = 0; i < data.Length; i++)
         {
             Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, 5.0f);
-            Shape s = Instantiate(prefabGamePiece).GetComponent<Shape>();
+            GameObject g = Instantiate(prefabGamePiece);
+            Shape s = g.GetComponent<Shape>();
             s.CreateMesh(data[i]);
+            g.AddComponent<PolygonCollider2D>();
             s.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
         }
     }
@@ -141,6 +164,29 @@ public class GameController : MonoBehaviour
 
         return results.ToArray();
     }
+
+    private void HandleLeftClick()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+ 
+        if(hit.collider != null)
+        {
+            if(hit.collider.gameObject.tag == "piece")
+            {
+                heldPiece = hit.collider.gameObject;
+            }
+        }
+    }
+
+
+    private void HandleHolding()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        heldPiece.transform.position = mousePos;
+    }
+
+
 
     // TODO/enhance: this will need to do a better job of distributing the
     //               cells to be a bit more random and each piece isnt
