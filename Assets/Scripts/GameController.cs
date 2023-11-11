@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     private List<Shape> shapes;
 
     private GameObject heldPiece;
-    private Vector2 pickupOffset;
+    private Vector3 pickupOffset;
 
 
     public List<Color> gamePieceColors = new List<Color>() 
@@ -167,13 +167,14 @@ public class GameController : MonoBehaviour
 
     private void HandleLeftClick()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
- 
-        if(hit.collider != null)
+
+        RaycastHit hit; 
+        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
         {
             if(hit.collider.gameObject.tag == "piece")
             {
                 heldPiece = hit.collider.gameObject;
+                pickupOffset = heldPiece.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
     }
@@ -183,7 +184,8 @@ public class GameController : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-        heldPiece.transform.position = mousePos;
+        pickupOffset.z = 0;
+        heldPiece.transform.position = mousePos + pickupOffset;
     }
 
 

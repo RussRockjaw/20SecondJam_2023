@@ -64,6 +64,8 @@ public class Shape : MonoBehaviour
         mesh.name = "Piece";
         meshFilter.mesh = mesh;
         meshCollider.sharedMesh = mesh;
+
+        this.gameObject.transform.GetChild(0).gameObject.tag = "piece";
     }
 
     public Vector2[] LocalToWorld()
