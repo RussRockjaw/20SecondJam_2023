@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
         }
         else if(heldPiece != null && !Input.GetMouseButton(0))
         {
+            heldPiece.transform.position = playArea.Cart2World(playArea.World2Cart(heldPiece.transform.position));
             heldPiece = null;
             // TODO/incomplete: here we need to also check the playArea grid and stuff
         }
@@ -54,6 +55,10 @@ public class GameController : MonoBehaviour
         {
             HandleHolding();
         }
+
+        bool[] cellChecks = playArea.CheckCells(shapes);
+        playArea.ColorTheCells(cellChecks);
+
     }
 
     public void SpawnGamePieces(Vector2[][] data)
@@ -70,8 +75,8 @@ public class GameController : MonoBehaviour
             GameObject g = Instantiate(prefabGamePiece);
             Shape s = g.GetComponent<Shape>();
             s.CreateMesh(data[i]);
-            //g.transform.GetChild(0).gameObject.AddComponent<PolygonCollider2D>();
             s.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
+            shapes.Add(s);
         }
     }
 
@@ -131,26 +136,18 @@ public class GameController : MonoBehaviour
         tracker.Add(currentGridPosition);
         results.Add(currentPiecePosition);
 
-        Debug.Log("Generating New Piece");
-        Debug.Log($"starting at {currentGridPosition}");
-
         for(int i = 1; i < steps; i++)
         {
-            Debug.Log($"taking step {i}");
             for(int j = 0; j < 4; j++)
             {
                 // choose a random direction
                 Vector2 d = directions[Random.Range(0, 4)];
                 Vector2 targetGridPos = currentGridPosition + d;
                 int targetPosIndex = playArea.Cart2Index(targetGridPos);
-                Debug.Log($"target pos: {targetGridPos}");
-                Debug.Log($"target index: {targetPosIndex}");
 
                 // check if that space is open
                 if(playArea.GetGrid().Contains(targetGridPos) && !cellsClaimed[targetPosIndex])
                 {
-                    Debug.Log($"Open spot found at {targetGridPos}");
-
                     currentGridPosition = targetGridPos;
                     currentPiecePosition += d;
                     tracker.Add(currentGridPosition);
@@ -167,13 +164,12 @@ public class GameController : MonoBehaviour
 
     private void HandleLeftClick()
     {
-
         RaycastHit hit; 
         if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
         {
             if(hit.collider.gameObject.tag == "piece")
             {
-                heldPiece = hit.collider.gameObject;
+                heldPiece = hit.collider.gameObject.transform.parent.gameObject;
                 pickupOffset = heldPiece.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
@@ -186,6 +182,7 @@ public class GameController : MonoBehaviour
         mousePos.z = 0;
         pickupOffset.z = 0;
         heldPiece.transform.position = mousePos + pickupOffset;
+        Shape s = heldPiece.GetComponent<Shape>();
     }
 
 

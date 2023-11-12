@@ -17,7 +17,7 @@ public class PlayArea : MonoBehaviour
 
     void Update()
     {
-        
+        ClearCells();
     }
 
 
@@ -34,19 +34,54 @@ public class PlayArea : MonoBehaviour
         }
     }
 
-    public void ColorTheCells(Vector2[] pos, Color c)
+    private void ClearCells()
     {
-        int pI = grid.Cart2Index(pos[0]);
-        Transform parent = cells[pI].transform;
-
-        foreach(Vector2 p in pos)
+        foreach(GameObject g in cells)
         {
-            int i = grid.Cart2Index(p);
-            SpriteRenderer sr = cells[i].GetComponent<SpriteRenderer>();
-            sr.color = c;
-            if(p != pos[0])
-                cells[i].transform.SetParent(parent);
+            SpriteRenderer sr = g.GetComponent<SpriteRenderer>();
+            sr.color = Color.white;
         }
+
+    }
+
+    public void ColorTheCells(bool[] bs)
+    {
+        for(int i = 0; i < bs.Length; i++)
+        {
+            if(bs[i])
+            {
+                SpriteRenderer sr = cells[i].GetComponent<SpriteRenderer>();
+                sr.color = Color.red;
+            }
+            else
+            {
+                SpriteRenderer sr = cells[i].GetComponent<SpriteRenderer>();
+                sr.color = Color.white;
+            }
+        }
+    }
+
+    public bool[] CheckCells(List<Shape> shapes)
+    {
+        bool[] result = new bool[grid.Size];
+        for(int i = 0; i < result.Length; i++)
+        {
+            result[i] = false;
+        }
+
+        foreach(Shape s in shapes)
+        {
+            foreach(Vector2 p in s.LocalToWorld())
+            {
+                if(grid.Contains(grid.World2Cart(p)))
+                {
+                    int i = grid.World2Index(p);
+                    result[i] = true;
+                }
+            }
+        }
+
+        return result;
     }
 
     public int Size()
@@ -67,6 +102,16 @@ public class PlayArea : MonoBehaviour
     public int Cart2Index(Vector2 p)
     {
         return grid.Cart2Index(p);
+    }
+
+    public Vector3 Cart2World(Vector2 v)
+    {
+        return grid.Cart2World(v);
+    }
+
+    public Vector2 World2Cart(Vector3 v)
+    {
+        return grid.World2Cart(v);
     }
 
 }
