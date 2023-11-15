@@ -4,24 +4,11 @@ using UnityEngine;
 
 public class PlayArea : MonoBehaviour
 {
-    public GameObject prefabCell;
-
     private Grid2D grid;
     private GameObject[] cells;
 
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        ClearCells();
-    }
-
-
-    public void BuildPlayArea(int gridWidth, int gridHeight)
+    public void BuildPlayArea(int gridWidth, int gridHeight, GameObject prefabCell)
     {
         grid = new Grid2D(gridWidth, gridHeight, new Vector2(1, 1), new Vector2(-gridWidth / 2, -gridHeight / 2));
         cells = new GameObject[grid.Size];
@@ -46,17 +33,13 @@ public class PlayArea : MonoBehaviour
 
     public void ColorTheCells(bool[] bs)
     {
+        ClearCells();
         for(int i = 0; i < bs.Length; i++)
         {
             if(bs[i])
             {
                 SpriteRenderer sr = cells[i].GetComponent<SpriteRenderer>();
-                sr.color = Color.red;
-            }
-            else
-            {
-                SpriteRenderer sr = cells[i].GetComponent<SpriteRenderer>();
-                sr.color = Color.white;
+                sr.color = Color.black;
             }
         }
     }

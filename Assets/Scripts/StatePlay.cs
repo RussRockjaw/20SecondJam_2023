@@ -2,27 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class StatePlay : IGameState
 {
-    public GameObject prefabGamePiece;
-    public PlayArea playArea;
-
+    private PlayArea playArea;
+    private GameObject prefabGamePiece;
+    private GameObject prefabPlayArea;
+    private GameObject prefabCell;
     private Vector2[][] gamePieceData;
     private List<Shape> shapes;
-
     private GameObject heldPiece;
     private Vector3 pickupOffset;
-
-
-    public List<Color> gamePieceColors = new List<Color>() 
-    {
-        Color.red,
-        Color.blue,
-        Color.green,
-        Color.yellow,
-        Color.cyan,
-    };
-
+    private int width;
+    private int height;
+    private int maxGamePieceSize;
     private Vector2[] directions = new Vector2[] 
     {
         new Vector2(0, 1),
@@ -31,14 +23,36 @@ public class GameController : MonoBehaviour
         new Vector2(-1, 0),
     };
 
-    void Start()
+
+
+    public StatePlay(int w, int h, int s, GameObject p, GameObject pap, GameObject cell)
     {
-        playArea.BuildPlayArea(5, 5);
-        gamePieceData = GenerateGamePieceData(6);
+        width = w;
+        height = h;
+        maxGamePieceSize = s;
+        prefabGamePiece = p;
+        prefabPlayArea = pap;
+        prefabCell = cell;
+    }
+
+    public void Initialize()
+    {
+        playArea = GameObject.Instantiate(prefabPlayArea).GetComponent<PlayArea>();
+        playArea.BuildPlayArea(width, height, this.prefabCell);
+        gamePieceData = GenerateGamePieceData(maxGamePieceSize);
         SpawnGamePieces(gamePieceData);
     }
 
-    void Update()
+    public void Cleanup()
+    {
+        Object.Destroy(playArea.gameObject);
+        for(int i = shapes.Count - 1; i > -1; i--) 
+        {
+            Object.Destroy(shapes[i].gameObject);
+        }
+    }
+
+    public void HandleUpdate()
     {
         if(heldPiece == null && Input.GetMouseButtonDown(0))
         {
@@ -72,7 +86,7 @@ public class GameController : MonoBehaviour
         for(int i = 0; i < data.Length; i++)
         {
             Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, 5.0f);
-            GameObject g = Instantiate(prefabGamePiece);
+            GameObject g = GameObject.Instantiate(prefabGamePiece);
             Shape s = g.GetComponent<Shape>();
             s.CreateMesh(data[i]);
             s.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
