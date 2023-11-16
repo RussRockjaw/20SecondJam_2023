@@ -5,6 +5,10 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
 
+    public int playAreaW = 5;
+    public int playAreaH = 5;
+    public int maxPieceSize = 5;
+
     public GameObject prefabGamePiece;
     public GameObject prefabCell;
     public GameObject prefabPlayArea;
@@ -35,7 +39,7 @@ public class StateMachine : MonoBehaviour
 
     public void StatePlay()
     {
-        SetState(new StatePlay(5, 5, 6, prefabGamePiece, prefabPlayArea, prefabCell));
+        SetState(new StatePlay(playAreaW, playAreaH, maxPieceSize, prefabGamePiece, prefabPlayArea, prefabCell));
     }
 
     public void StateTitle()

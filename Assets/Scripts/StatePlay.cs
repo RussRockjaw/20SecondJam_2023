@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StatePlay : IGameState
 {
+    private float timeMax = 20.0f;
+    private Timer timer;
     private PlayArea playArea;
     private GameObject prefabGamePiece;
     private GameObject prefabPlayArea;
@@ -33,6 +35,7 @@ public class StatePlay : IGameState
         prefabGamePiece = p;
         prefabPlayArea = pap;
         prefabCell = cell;
+        timer = new Timer(timeMax);
     }
 
     public void Initialize()
@@ -54,26 +57,90 @@ public class StatePlay : IGameState
 
     public void HandleUpdate()
     {
+
+        HandleTimer();
+
         if(heldPiece == null && Input.GetMouseButtonDown(0))
         {
-            HandleLeftClick();
+            PickupGamePiece();
         }
         else if(heldPiece != null && !Input.GetMouseButton(0))
         {
-            heldPiece.transform.position = playArea.Cart2World(playArea.World2Cart(heldPiece.transform.position));
-            heldPiece = null;
-            // TODO/incomplete: here we need to also check the playArea grid and stuff
+            DropGamePiece();
         }
 
         if(heldPiece != null)
         {
-            HandleHolding();
+            HoldGamePiece();
         }
 
-        bool[] cellChecks = playArea.CheckCells(shapes);
-        playArea.ColorTheCells(cellChecks);
+        bool[] containedCells = playArea.CheckContainedCells(shapes);
+        playArea.HighlightCells(containedCells);
 
+        if(heldPiece == null && WeWin(containedCells))
+        {
+            Debug.Log("Win!");
+            // TODO/incomplete: swtich to win state
+        }
     }
+
+    public void HandleTimer()
+    {
+        if(timer.Tick(Time.deltaTime))
+        {
+            Debug.Log("Game Over!");
+            // TODO/incomplete: switch to game over state
+        }
+        else 
+        {
+            //Debug.Log(timer.Current);
+            // TODO/incomplete: set the timer text to the current time
+        }
+    }
+
+
+    private void PickupGamePiece()
+    {
+        RaycastHit hit; 
+        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+        {
+            if(hit.collider.gameObject.tag == "piece")
+            {
+                heldPiece = hit.collider.gameObject.transform.parent.gameObject;
+                pickupOffset = heldPiece.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+        }
+    }
+
+    private void DropGamePiece()
+    {
+        Vector3 snapToGridPos = playArea.Cart2World(playArea.World2Cart(heldPiece.transform.position));
+        if(playArea.AnyCellsContained(new List<Shape>() { heldPiece.GetComponent<Shape>() }))
+        {
+            heldPiece.transform.position = snapToGridPos;
+        }
+
+        heldPiece = null;
+    }
+
+    private void HoldGamePiece()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        pickupOffset.z = 0;
+        heldPiece.transform.position = mousePos + pickupOffset;
+    }
+
+    private bool WeWin(bool[] cells)
+    {
+        foreach(bool b in cells)
+        {
+            if(!b) 
+                return false;
+        }
+        return true;
+    }
+
 
     public void SpawnGamePieces(Vector2[][] data)
     {
@@ -93,7 +160,6 @@ public class StatePlay : IGameState
             shapes.Add(s);
         }
     }
-
 
     public Vector2[][] GenerateGamePieceData(int maxPieceSize)
     {
@@ -174,29 +240,6 @@ public class StatePlay : IGameState
         }
 
         return results.ToArray();
-    }
-
-    private void HandleLeftClick()
-    {
-        RaycastHit hit; 
-        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
-        {
-            if(hit.collider.gameObject.tag == "piece")
-            {
-                heldPiece = hit.collider.gameObject.transform.parent.gameObject;
-                pickupOffset = heldPiece.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            }
-        }
-    }
-
-
-    private void HandleHolding()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        pickupOffset.z = 0;
-        heldPiece.transform.position = mousePos + pickupOffset;
-        Shape s = heldPiece.GetComponent<Shape>();
     }
 
 

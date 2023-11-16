@@ -31,7 +31,7 @@ public class PlayArea : MonoBehaviour
 
     }
 
-    public void ColorTheCells(bool[] bs)
+    public void HighlightCells(bool[] bs)
     {
         ClearCells();
         for(int i = 0; i < bs.Length; i++)
@@ -44,7 +44,7 @@ public class PlayArea : MonoBehaviour
         }
     }
 
-    public bool[] CheckCells(List<Shape> shapes)
+    public bool[] CheckContainedCells(List<Shape> shapes)
     {
         bool[] result = new bool[grid.Size];
         for(int i = 0; i < result.Length; i++)
@@ -65,6 +65,36 @@ public class PlayArea : MonoBehaviour
         }
 
         return result;
+    }
+
+    public bool AllCellsContained(List<Shape> shapes)
+    {
+        foreach(Shape s in shapes)
+        {
+            foreach(Vector2 p in s.LocalToWorld())
+            {
+                if(!grid.Contains(grid.World2Cart(p)))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public bool AnyCellsContained(List<Shape> shapes)
+    {
+        foreach(Shape s in shapes)
+        {
+            foreach(Vector2 p in s.LocalToWorld())
+            {
+                if(grid.Contains(grid.World2Cart(p)))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public int Size()
@@ -95,6 +125,16 @@ public class PlayArea : MonoBehaviour
     public Vector2 World2Cart(Vector3 v)
     {
         return grid.World2Cart(v);
+    }
+
+    public bool Contains(Vector3 pos)
+    {
+        return grid.Contains(pos);
+    }
+
+    public bool Contains(Vector2 pos)
+    {
+        return grid.Contains(pos);
     }
 
 }
