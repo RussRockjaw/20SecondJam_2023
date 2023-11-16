@@ -5,26 +5,39 @@ using UnityEngine;
 public class Timer
 {
     private float current;
-    public float Current { get { return current; } private set{} }
     private float max;
+    private bool countdown = false;
+
+    public float Current { get { return current; } private set{} }
 
 
-    public Timer(float max)
+
+    public Timer(float max, bool countdown = false)
     {
         this.max = max;
-        current = 0.0f;
+        this.countdown = countdown;
+        Reset();
     }
 
     // takes a float and adds it to the current time 
-    // returns true if the timer has reached its max
+    // returns true if the timer has ended
     public bool Tick(float t)
     {
-        current += t;
-        return current >= max;
+        if(countdown)
+        {
+            current -= t;
+            return current <= 0f;
+        }
+        else 
+        {
+            current += t;
+            return current >= max;
+        }
     }
 
     public void Reset()
     {
-        current = 0.0f;
+        if(countdown) current = this.max;
+        else current = 0f;
     }
 }

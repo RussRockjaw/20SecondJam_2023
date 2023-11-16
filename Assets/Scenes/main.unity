@@ -244,6 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a278627bff42694f814b0f7a03870e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAreaW: 3
+  playAreaH: 3
+  maxPieceSize: 5
   prefabGamePiece: {fileID: 1687940809680984622, guid: 294a580f7939ac443a272e02ab07cd2f, type: 3}
   prefabCell: {fileID: 1604162297043797783, guid: fb654f73678d5f9469998213dbc2f44e, type: 3}
   prefabPlayArea: {fileID: 3431581675782077415, guid: ddba9c78a7f09474da6d3024743a60db, type: 3}

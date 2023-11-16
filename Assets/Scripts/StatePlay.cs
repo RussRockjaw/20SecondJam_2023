@@ -5,7 +5,9 @@ using UnityEngine;
 public class StatePlay : IGameState
 {
     private float timeMax = 20.0f;
-    private Timer timer;
+    private bool gameStarted;
+    private Timer gameTimer;
+    private Timer countdownTimer;
     private PlayArea playArea;
     private GameObject prefabGamePiece;
     private GameObject prefabPlayArea;
@@ -35,7 +37,8 @@ public class StatePlay : IGameState
         prefabGamePiece = p;
         prefabPlayArea = pap;
         prefabCell = cell;
-        timer = new Timer(timeMax);
+        gameTimer = new Timer(timeMax, true);
+        countdownTimer = new Timer(3, true);
     }
 
     public void Initialize()
@@ -57,17 +60,14 @@ public class StatePlay : IGameState
 
     public void HandleUpdate()
     {
-
-        HandleTimer();
-
-        if(heldPiece == null && Input.GetMouseButtonDown(0))
+        if(!gameStarted)
         {
-            PickupGamePiece();
+            CountDown();
+            return;
         }
-        else if(heldPiece != null && !Input.GetMouseButton(0))
-        {
-            DropGamePiece();
-        }
+
+        HandleGameTimer();
+        HandleInput();
 
         if(heldPiece != null)
         {
@@ -84,18 +84,37 @@ public class StatePlay : IGameState
         }
     }
 
-    public void HandleTimer()
+    public void HandleGameTimer()
     {
-        if(timer.Tick(Time.deltaTime))
+        if(gameTimer.Tick(Time.deltaTime))
         {
             Debug.Log("Game Over!");
             // TODO/incomplete: switch to game over state
         }
         else 
         {
-            //Debug.Log(timer.Current);
-            // TODO/incomplete: set the timer text to the current time
+            Debug.Log(gameTimer.Current);
+            // TODO/incomplete: set the gameTimer text to the current time
         }
+    }
+
+    private void HandleInput()
+    {
+        if(heldPiece == null && Input.GetMouseButtonDown(0))
+        {
+            PickupGamePiece();
+        }
+        else if(heldPiece != null && !Input.GetMouseButton(0))
+        {
+            DropGamePiece();
+        }
+    }
+
+    private void CountDown()
+    {
+        gameStarted = countdownTimer.Tick(Time.deltaTime);
+        Debug.Log(countdownTimer.Current);
+        // TODO/incomplete: set the ui countdown timer text
     }
 
 
