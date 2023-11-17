@@ -15,11 +15,23 @@ public class StateMachine : MonoBehaviour
 
     private IGameState currentState = null;
 
+    private GameObject stateMainMenu;
+    private GameObject statePlay;
+    private GameObject stateOptions;
+    private GameObject stateGameOver;
 
 
-    void Start()
+    void Awake()
     {
-       StatePlay(); 
+        stateMainMenu = GameObject.Find("State_MainMenu");
+        stateOptions = GameObject.Find("State_Options");
+        statePlay = GameObject.Find("State_Play");
+        stateGameOver = GameObject.Find("State_GameOver");
+
+        stateMainMenu.SetActive(true);
+        stateOptions.SetActive(false);
+        statePlay.SetActive(false);
+        stateGameOver.SetActive(false);
     }
 
     void Update()
@@ -40,14 +52,28 @@ public class StateMachine : MonoBehaviour
     public void StatePlay()
     {
         SetState(new StatePlay(playAreaW, playAreaH, maxPieceSize, prefabGamePiece, prefabPlayArea, prefabCell));
+        stateMainMenu.SetActive(false);
+        stateOptions.SetActive(false);
+        statePlay.SetActive(true);
+        stateGameOver.SetActive(false);
+
     }
 
     public void StateTitle()
     {
+        stateMainMenu.SetActive(false);
+        stateOptions.SetActive(false);
+        statePlay.SetActive(true);
+        stateGameOver.SetActive(false);
     }
 
     public void StateGameOver()
     {
+        stateMainMenu.SetActive(false);
+        stateOptions.SetActive(false);
+        statePlay.SetActive(false);
+        stateGameOver.SetActive(true);
+
     }
 
 }
