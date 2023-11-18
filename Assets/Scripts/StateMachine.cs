@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-
     public int playAreaW = 5;
     public int playAreaH = 5;
     public int maxPieceSize = 5;
@@ -12,6 +11,8 @@ public class StateMachine : MonoBehaviour
     public GameObject prefabGamePiece;
     public GameObject prefabCell;
     public GameObject prefabPlayArea;
+
+    public GameObject prefabMainMenu;
 
     private IGameState currentState = null;
 
@@ -23,15 +24,7 @@ public class StateMachine : MonoBehaviour
 
     void Awake()
     {
-        stateMainMenu = GameObject.Find("State_MainMenu");
-        stateOptions = GameObject.Find("State_Options");
-        statePlay = GameObject.Find("State_Play");
-        stateGameOver = GameObject.Find("State_GameOver");
-
-        stateMainMenu.SetActive(true);
-        stateOptions.SetActive(false);
-        statePlay.SetActive(false);
-        stateGameOver.SetActive(false);
+        StateTitle();
     }
 
     void Update()
@@ -51,29 +44,15 @@ public class StateMachine : MonoBehaviour
 
     public void StatePlay()
     {
-        SetState(new StatePlay(playAreaW, playAreaH, maxPieceSize, prefabGamePiece, prefabPlayArea, prefabCell));
-        stateMainMenu.SetActive(false);
-        stateOptions.SetActive(false);
-        statePlay.SetActive(true);
-        stateGameOver.SetActive(false);
-
+        SetState(new StatePlay(this, playAreaW, playAreaH, maxPieceSize, prefabGamePiece, prefabPlayArea, prefabCell));
     }
 
     public void StateTitle()
     {
-        stateMainMenu.SetActive(false);
-        stateOptions.SetActive(false);
-        statePlay.SetActive(true);
-        stateGameOver.SetActive(false);
+        SetState(new StateMainMenu(this, prefabMainMenu));
     }
 
     public void StateGameOver()
     {
-        stateMainMenu.SetActive(false);
-        stateOptions.SetActive(false);
-        statePlay.SetActive(false);
-        stateGameOver.SetActive(true);
-
     }
-
 }

@@ -29,7 +29,7 @@ public class StatePlay : IGameState
 
 
 
-    public StatePlay(int w, int h, int s, GameObject p, GameObject pap, GameObject cell)
+    public StatePlay(StateMachine sm, int w, int h, int s, GameObject p, GameObject pap, GameObject cell)
     {
         width = w;
         height = h;
