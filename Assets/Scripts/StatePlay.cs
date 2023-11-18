@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatePlay : IGameState
 {
-    private float timeMax = 20.0f;
+    private float timeMax = 20.0f;  //open to options
     private bool gameStarted;
     private Timer gameTimer;
     private Timer countdownTimer;
@@ -16,8 +16,8 @@ public class StatePlay : IGameState
     private List<Shape> shapes;
     private GameObject heldPiece;
     private Vector3 pickupOffset;
-    private int width;
-    private int height;
+    private int width;  //open to options
+    private int height; //open to options
     private int maxGamePieceSize;
     private Vector2[] directions = new Vector2[] 
     {
@@ -293,5 +293,36 @@ public class StatePlay : IGameState
             }
         }
         return result.ToArray();
+    }
+
+    //Getters and Setters
+    public void setTimeMax(float time)
+    {
+        timeMax = time;
+    }
+
+    public float getTimeMax()
+    {
+        return timeMax;
+    }
+
+    public void setWidth(int x)
+    {
+        width = x;
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public void setHeight(int y)
+    {
+        height = y;
+    }
+
+    public int getHeight()
+    {
+        return height;
     }
 }
