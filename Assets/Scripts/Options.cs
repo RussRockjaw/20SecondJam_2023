@@ -6,27 +6,29 @@ using TMPro;
 
 public class Options : MonoBehaviour
 {
+    public Settings settings;
+    
     public GameObject returnButtonGO;
 
     public GameObject timerSliderGO;
     private Slider timerSlider;
     public GameObject labelTimerValue;
-    public int TimerValue {get;}
+    public int TimerValue {get; set;}
     
     public GameObject widthSliderGO;
     private Slider widthSlider;
     public GameObject labelWidthValue;
-    private int WidthValue {get;}
+    private int WidthValue {get; set;}
     
     public GameObject heightSliderGO;
     private Slider heightSlider;
     public GameObject labelHeightValue;
-    private int HeightValue {get;}
+    private int HeightValue {get; set;}
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        settings = new Settings(20, 3, 3);
     }
 
     // Update is called once per frame
@@ -47,16 +49,19 @@ public class Options : MonoBehaviour
 
     public void TimerSliderChange()
     {
-        labelTimerValue.GetComponent<TMP_Text>().text = "" + timerSlider.value;
+        TimerValue = (int)timerSlider.value;
+        labelTimerValue.GetComponent<TMP_Text>().text = "" + TimerValue;
     }
 
     public void WidthSliderChange()
     {
-        labelWidthValue.GetComponent<TMP_Text>().text = "" + widthSlider.value;
+        WidthValue = (int)widthSlider.value;
+        labelWidthValue.GetComponent<TMP_Text>().text = "" + WidthValue;
     }
 
     public void HeightSliderChange()
     {
-        labelHeightValue.GetComponent<TMP_Text>().text = "" + heightSlider.value;
+        HeightValue = (int)heightSlider.value;
+        labelHeightValue.GetComponent<TMP_Text>().text = "" + HeightValue;
     }
 }
