@@ -20,6 +20,7 @@ public class StateMainMenu : IGameState
         menu = GameObject.Instantiate(prefabMenu).GetComponent<MainMenu>();
         menu.Setup();
         menu.startButton.onClick.AddListener(StartButton);
+        menu.optionsButton.onClick.AddListener(OptionsButton);
     }
 
     public void Cleanup()
@@ -30,6 +31,11 @@ public class StateMainMenu : IGameState
     public void StartButton()
     {
         sm.StatePlay();
+    }
+
+    public void OptionsButton()
+    {
+        sm.StateOptions();
     }
 
     public void HandleUpdate()

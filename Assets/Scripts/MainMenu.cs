@@ -7,9 +7,10 @@ public class MainMenu : MonoBehaviour
 {
 
     public GameObject buttonStartGO;
+    public GameObject buttonOptionsGO;
 
     public Button startButton;
-
+    public Button optionsButton;
 
 
     // Start is called before the first frame update
@@ -27,5 +28,6 @@ public class MainMenu : MonoBehaviour
     public void Setup()
     {
         startButton = buttonStartGO.GetComponent<Button>();
+        optionsButton = buttonOptionsGO.GetComponent<Button>();
     }
 }

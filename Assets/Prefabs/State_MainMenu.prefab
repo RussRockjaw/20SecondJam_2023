@@ -959,6 +959,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonStartGO: {fileID: 8350980141204443826}
+  buttonOptionsGO: {fileID: 821716577102753695}
+  startButton: {fileID: 0}
+  optionsButton: {fileID: 0}
 --- !u!1 &8350980141204443826
 GameObject:
   m_ObjectHideFlags: 0

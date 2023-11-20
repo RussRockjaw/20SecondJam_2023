@@ -13,6 +13,7 @@ public class StateMachine : MonoBehaviour
     public GameObject prefabPlayArea;
 
     public GameObject prefabMainMenu;
+    public GameObject prefabOptions;
 
     private IGameState currentState = null;
 
@@ -54,5 +55,10 @@ public class StateMachine : MonoBehaviour
 
     public void StateGameOver()
     {
+    }
+
+    public void StateOptions()
+    {
+        SetState(new StateOptions(this, prefabOptions));
     }
 }
