@@ -133,15 +133,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 500070392000114433, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26084703
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 500070392000114433, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47505438
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 500070392000114433, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.037371885
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 500070392000114433, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
       propertyPath: m_LocalRotation.w
@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: prefabMainMenu
       value: 
       objectReference: {fileID: 8110863975881659001, guid: 288014a47ec29834093d058fb988f5d1, type: 3}
+    - target: {fileID: 7659938051786375736, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
+      propertyPath: defaultPlayAreaH
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8792636777655990929, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
       propertyPath: m_Name
       value: StateMachine
@@ -224,7 +228,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

@@ -10,27 +10,34 @@ public class StateOptions : IGameState
     private Options options;
     private StateMachine sm;
 
-    private int TimerValue {get; set;}
-    private int WidthValue {get; set;}
-    private int HeightValue {get; set;}
+    private Settings defaultSettings;
 
-    public Settings settings;
 
-    public StateOptions(StateMachine s, GameObject obj)
+    public StateOptions(StateMachine s, GameObject obj, Settings set)
     {
-       prefabOptions = obj;
-       options = prefabOptions.GetComponent<Options>();
-       sm = s;
+        prefabOptions = obj;
+        defaultSettings = set;
+        sm = s;
     }
 
     public void Initialize()
     {
-       options.timerSlider.onValueChanged.AddListener(delegate {TimerSliderChange();});
-       options.widthSlider.onValueChanged.AddListener(delegate {WidthSliderChange();});
-       options.heightSlider.onValueChanged.AddListener(delegate {HeightSliderChange();});
-       options.returnButton.onClick.AddListener(ReturnButton);
-       options.confirmButton.onClick.AddListener(ConfirmButton);
-       settings =new Settings(20, 3, 3);
+        options = GameObject.Instantiate(prefabOptions).GetComponent<Options>();
+        options.timerSlider.value = defaultSettings.time;
+        options.widthSlider.value = defaultSettings.width;
+        options.heightSlider.value = defaultSettings.height;
+
+        options.timerSlider.onValueChanged.AddListener(delegate {TimerSliderChange();});
+        options.widthSlider.onValueChanged.AddListener(delegate {WidthSliderChange();});
+        options.heightSlider.onValueChanged.AddListener(delegate {HeightSliderChange();});
+
+        options.returnButton.onClick.AddListener(ReturnButton);
+        options.confirmButton.onClick.AddListener(ConfirmButton);
+
+        TimerSliderChange();
+        WidthSliderChange();
+        HeightSliderChange();
+
     }
 
     public void Cleanup()
@@ -45,20 +52,17 @@ public class StateOptions : IGameState
 
     public void TimerSliderChange()
     {
-        TimerValue = (int)options.timerSlider.value;
-        options.labelTimerValue.GetComponent<TMP_Text>().text = "" + TimerValue;
+        options.labelTimerValue.GetComponent<TMP_Text>().text = $"{(int)options.timerSlider.value}";
     }
 
     public void WidthSliderChange()
     {
-        WidthValue = (int)options.widthSlider.value;
-        options.labelWidthValue.GetComponent<TMP_Text>().text = "" + WidthValue;
+        options.labelWidthValue.GetComponent<TMP_Text>().text = $"{(int)options.widthSlider.value}";
     }
 
     public void HeightSliderChange()
     {
-        HeightValue = (int)options.heightSlider.value;
-        options.labelHeightValue.GetComponent<TMP_Text>().text = "" + HeightValue;
+        options.labelHeightValue.GetComponent<TMP_Text>().text = $"{(int)options.heightSlider.value}";
     }
 
     public void ReturnButton()
@@ -68,9 +72,7 @@ public class StateOptions : IGameState
 
     public void ConfirmButton()
     {
-       settings.time = TimerValue;
-       settings.width = WidthValue;
-       settings.height = HeightValue;
+        sm.SetGameSettings(new Settings((int)options.timerSlider.value, (int)options.widthSlider.value, (int)options.heightSlider.value, 5));
+        sm.StateTitle();
     }
-
 }

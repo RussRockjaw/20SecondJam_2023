@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    public int playAreaW = 5;
-    public int playAreaH = 5;
-    public int maxPieceSize = 5;
+    public int defaultTime = 20;
+    public int defaultPlayAreaW = 3;
+    public int defaultPlayAreaH = 3;
+    public int defaultMaxPieceSize = 5;
 
     public GameObject prefabGamePiece;
     public GameObject prefabCell;
@@ -16,15 +17,14 @@ public class StateMachine : MonoBehaviour
     public GameObject prefabOptions;
 
     private IGameState currentState = null;
-
-    private GameObject stateMainMenu;
-    private GameObject statePlay;
-    private GameObject stateOptions;
-    private GameObject stateGameOver;
+    private Settings defaultSettings;
+    private Settings gameSettings;
 
 
     void Awake()
     {
+        defaultSettings = new Settings(defaultTime, defaultPlayAreaW, defaultPlayAreaH, defaultMaxPieceSize);
+        gameSettings = defaultSettings.Copy();
         StateTitle();
     }
 
@@ -45,7 +45,7 @@ public class StateMachine : MonoBehaviour
 
     public void StatePlay()
     {
-        SetState(new StatePlay(this, playAreaW, playAreaH, maxPieceSize, prefabGamePiece, prefabPlayArea, prefabCell));
+        SetState(new StatePlay(this, gameSettings, prefabGamePiece, prefabPlayArea, prefabCell));
     }
 
     public void StateTitle()
@@ -59,6 +59,16 @@ public class StateMachine : MonoBehaviour
 
     public void StateOptions()
     {
-        SetState(new StateOptions(this, prefabOptions));
+        SetState(new StateOptions(this, prefabOptions, defaultSettings));
+    }
+
+    public void SetGameSettings(Settings s)
+    {
+        gameSettings = s;
+    }
+
+    public void SetDefaultGameSettings()
+    {
+        gameSettings = defaultSettings.Copy();
     }
 }

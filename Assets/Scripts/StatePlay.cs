@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StatePlay : IGameState
 {
-    private float timeMax = 20.0f;  //open to options
     private bool gameStarted;
     private Timer gameTimer;
     private Timer countdownTimer;
@@ -16,9 +15,7 @@ public class StatePlay : IGameState
     private List<Shape> shapes;
     private GameObject heldPiece;
     private Vector3 pickupOffset;
-    private int width;  //open to options
-    private int height; //open to options
-    private int maxGamePieceSize;
+    private Settings settings;
     private Vector2[] directions = new Vector2[] 
     {
         new Vector2(0, 1),
@@ -29,24 +26,23 @@ public class StatePlay : IGameState
 
 
 
-    public StatePlay(StateMachine sm, int w, int h, int s, GameObject p, GameObject pap, GameObject cell)
+    public StatePlay(StateMachine sm, Settings set, GameObject pp, GameObject ppa, GameObject cell)
     {
-        width = w;
-        height = h;
-        maxGamePieceSize = s;
-        prefabGamePiece = p;
-        prefabPlayArea = pap;
+        settings = set;
+        prefabGamePiece = pp;
+        prefabPlayArea = ppa;
         prefabCell = cell;
-        gameTimer = new Timer(timeMax, true);
+        gameTimer = new Timer((float)settings.time, true);
         countdownTimer = new Timer(3, true);
     }
 
     public void Initialize()
     {
         playArea = GameObject.Instantiate(prefabPlayArea).GetComponent<PlayArea>();
-        playArea.BuildPlayArea(width, height, this.prefabCell);
-        gamePieceData = GenerateGamePieceData(maxGamePieceSize);
+        playArea.BuildPlayArea(settings.width, settings.height, this.prefabCell);
+        gamePieceData = GenerateGamePieceData(settings.maxPieceSize);
         SpawnGamePieces(gamePieceData);
+        Debug.Log($"Game Time: {gameTimer.Current}");
     }
 
     public void Cleanup()
@@ -93,7 +89,7 @@ public class StatePlay : IGameState
         }
         else 
         {
-            Debug.Log(gameTimer.Current);
+            Debug.Log($"Time Left: {gameTimer.Current}");
             // TODO/incomplete: set the gameTimer text to the current time
         }
     }
@@ -113,7 +109,7 @@ public class StatePlay : IGameState
     private void CountDown()
     {
         gameStarted = countdownTimer.Tick(Time.deltaTime);
-        Debug.Log(countdownTimer.Current);
+        Debug.Log($"Countdown: {countdownTimer.Current}");
         // TODO/incomplete: set the ui countdown timer text
     }
 
@@ -149,6 +145,7 @@ public class StatePlay : IGameState
         pickupOffset.z = 0;
         heldPiece.transform.position = mousePos + pickupOffset;
     }
+
 
     private bool WeWin(bool[] cells)
     {
@@ -251,7 +248,6 @@ public class StatePlay : IGameState
                     currentPiecePosition += d;
                     tracker.Add(currentGridPosition);
                     results.Add(currentPiecePosition);
-
                     cellsClaimed[targetPosIndex] = true;
                     break;
                 }
@@ -260,8 +256,6 @@ public class StatePlay : IGameState
 
         return results.ToArray();
     }
-
-
 
     // TODO/enhance: this will need to do a better job of distributing the
     //               cells to be a bit more random and each piece isnt
@@ -293,36 +287,5 @@ public class StatePlay : IGameState
             }
         }
         return result.ToArray();
-    }
-
-    //Getters and Setters
-    public void setTimeMax(float time)
-    {
-        timeMax = time;
-    }
-
-    public float getTimeMax()
-    {
-        return timeMax;
-    }
-
-    public void setWidth(int x)
-    {
-        width = x;
-    }
-
-    public int getWidth()
-    {
-        return width;
-    }
-
-    public void setHeight(int y)
-    {
-        height = y;
-    }
-
-    public int getHeight()
-    {
-        return height;
     }
 }
