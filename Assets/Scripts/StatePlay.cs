@@ -24,6 +24,10 @@ public class StatePlay : IGameState
         new Vector2(-1, 0),
     };
 
+    private float zoomMin = -10.0f;
+    private float zoomMax = -20.0f;
+    private float zoomSense = 10.0f;
+
 
 
     public StatePlay(StateMachine sm, Settings set, GameObject pp, GameObject ppa, GameObject cell)
@@ -56,6 +60,8 @@ public class StatePlay : IGameState
 
     public void HandleUpdate()
     {
+        HandleInput();
+
         if(!gameStarted)
         {
             CountDown();
@@ -63,7 +69,6 @@ public class StatePlay : IGameState
         }
 
         HandleGameTimer();
-        HandleInput();
 
         if(heldPiece != null)
         {
@@ -96,6 +101,17 @@ public class StatePlay : IGameState
 
     private void HandleInput()
     {
+        float scroll = Input.mouseScrollDelta.y;
+        if(scroll != 0)
+        {
+            Camera.main.orthographicSize += -scroll * Time.deltaTime * zoomSense;
+        }
+
+        if(!gameStarted)
+        {
+            return;
+        }
+
         if(heldPiece == null && Input.GetMouseButtonDown(0))
         {
             PickupGamePiece();
@@ -160,19 +176,16 @@ public class StatePlay : IGameState
 
     public void SpawnGamePieces(Vector2[][] data)
     {
-        // TODO/feature: probably will want a way to actually delete the game objects
-        // clear the old list, if their is one
         shapes = new List<Shape>();
 
         float degSplit = 360 / data.Length;
 
         for(int i = 0; i < data.Length; i++)
         {
-            Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, 5.0f);
-            GameObject g = GameObject.Instantiate(prefabGamePiece);
-            Shape s = g.GetComponent<Shape>();
+            Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, Mathf.Max(settings.width, settings.height) * 1.25f, playArea.GetCenterWorldPosition(0));
+            Shape s = GameObject.Instantiate(prefabGamePiece).GetComponent<Shape>();
             s.CreateMesh(data[i]);
-            s.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
+            s.gameObject.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
             shapes.Add(s);
         }
     }

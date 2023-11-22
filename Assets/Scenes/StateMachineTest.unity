@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: defaultPlayAreaH
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7659938051786375736, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
+      propertyPath: defaultPlayAreaW
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8792636777655990929, guid: a5ab40802fd91c545b5c467328f17771, type: 3}
       propertyPath: m_Name
       value: StateMachine

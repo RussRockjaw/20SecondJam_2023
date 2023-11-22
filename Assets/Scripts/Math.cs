@@ -11,10 +11,11 @@ namespace KE
             return (Mathf.Sin(theta) * amplitude) + baseline;
         }
 
-        public static Vector2 GetPositionAroundCirlce(float angle, float radius)
+        public static Vector2 GetPositionAroundCirlce(float angle, float radius, Vector2 center)
         {
-            var x = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
-            var y = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
+            var x = (Mathf.Cos(Mathf.Deg2Rad * angle) * radius) + center.x;
+            var y = (Mathf.Sin(Mathf.Deg2Rad * angle) * radius) + center.y;
+            //Debug.DrawRay(center, new Vector2(x, y), Color.red, 20, false);
             return new Vector2(x, y);
         }
 

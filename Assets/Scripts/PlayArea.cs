@@ -6,11 +6,13 @@ public class PlayArea : MonoBehaviour
 {
     private Grid2D grid;
     private GameObject[] cells;
+    private Vector2 offset;
 
 
     public void BuildPlayArea(int gridWidth, int gridHeight, GameObject prefabCell)
     {
-        grid = new Grid2D(gridWidth, gridHeight, new Vector2(1, 1), new Vector2(-gridWidth / 2, -gridHeight / 2));
+        offset = new Vector2(-gridWidth / 2.0f, -gridHeight / 2.0f);
+        grid = new Grid2D(gridWidth, gridHeight, new Vector2(1, 1), offset);
         cells = new GameObject[grid.Size];
         
         for(int i = 0; i < grid.Size; i++) 
@@ -95,6 +97,11 @@ public class PlayArea : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public Vector3 GetCenterWorldPosition(float z)
+    {
+        return new Vector3(grid.Cols / 2.0f, grid.Rows / 2.0f, z) + new Vector3(offset.x,  offset.y, 0);
     }
 
     public int Size()
