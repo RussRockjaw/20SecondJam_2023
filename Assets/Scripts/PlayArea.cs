@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayArea : MonoBehaviour
 {
@@ -8,6 +8,12 @@ public class PlayArea : MonoBehaviour
     private GameObject[] cells;
     private Vector2 offset;
 
+
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI countdownText;
+
+    private float countdownSizeMax = 36;
+    private float countdownSizeMin = 5;
 
     public void BuildPlayArea(int gridWidth, int gridHeight, GameObject prefabCell)
     {
@@ -97,6 +103,36 @@ public class PlayArea : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void SetTimerText(float t)
+    {
+        if(t < 0)
+        {
+            timerText.text = "0.00";
+        }
+        else 
+        {
+            timerText.text = (Mathf.Round(t * 100) / 100).ToString();
+        }
+    }
+
+    public void SetCountDownText(float f)
+    {
+        float start = Mathf.Ceil(f);
+        countdownText.fontSize = Mathf.Lerp(countdownSizeMin, countdownSizeMax, f / start);
+        Debug.Log(countdownText.fontSize);
+        countdownText.text = (Mathf.CeilToInt(f)).ToString();
+    }
+
+    public void TurnOffCountDown()
+    {
+        countdownText.gameObject.SetActive(false);
+    }
+
+    public void TurnOnCountDown()
+    {
+        countdownText.gameObject.SetActive(true);
     }
 
     public Vector3 GetCenterWorldPosition(float z)

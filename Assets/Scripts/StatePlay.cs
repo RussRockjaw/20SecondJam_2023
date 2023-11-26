@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StatePlay : IGameState
 {
     private bool gameStarted;
+    private bool gameOver;
     private Timer gameTimer;
     private Timer countdownTimer;
     private PlayArea playArea;
@@ -38,6 +38,8 @@ public class StatePlay : IGameState
         prefabCell = cell;
         gameTimer = new Timer((float)settings.time, true);
         countdownTimer = new Timer(3, true);
+        gameStarted = false;
+        gameOver = false;
     }
 
     public void Initialize()
@@ -46,7 +48,8 @@ public class StatePlay : IGameState
         playArea.BuildPlayArea(settings.width, settings.height, this.prefabCell);
         gamePieceData = GenerateGamePieceData(settings.maxPieceSize);
         SpawnGamePieces(gamePieceData);
-        Debug.Log($"Game Time: {gameTimer.Current}");
+        playArea.SetTimerText(gameTimer.Current);
+        //Debug.Log($"Game Time: {gameTimer.Current}");
     }
 
     public void Cleanup()
@@ -68,6 +71,9 @@ public class StatePlay : IGameState
             return;
         }
 
+        if(gameOver)
+            return;
+
         HandleGameTimer();
 
         if(heldPiece != null)
@@ -81,6 +87,7 @@ public class StatePlay : IGameState
         if(heldPiece == null && WeWin(containedCells))
         {
             Debug.Log("Win!");
+            gameOver = true;
             // TODO/incomplete: swtich to win state
         }
     }
@@ -89,12 +96,12 @@ public class StatePlay : IGameState
     {
         if(gameTimer.Tick(Time.deltaTime))
         {
-            Debug.Log("Game Over!");
+            playArea.SetTimerText(0);
             // TODO/incomplete: switch to game over state
         }
         else 
         {
-            Debug.Log($"Time Left: {gameTimer.Current}");
+            playArea.SetTimerText(gameTimer.Current);
             // TODO/incomplete: set the gameTimer text to the current time
         }
     }
@@ -125,7 +132,9 @@ public class StatePlay : IGameState
     private void CountDown()
     {
         gameStarted = countdownTimer.Tick(Time.deltaTime);
-        Debug.Log($"Countdown: {countdownTimer.Current}");
+        if(gameStarted)
+            playArea.TurnOffCountDown();
+        playArea.SetCountDownText(countdownTimer.Current);
         // TODO/incomplete: set the ui countdown timer text
     }
 
