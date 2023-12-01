@@ -160,6 +160,15 @@ public class StatePlay : IGameState
             heldPiece.transform.position = snapToGridPos;
         }
 
+        if(playArea.CheckForOverlappingPieces(shapes))
+        {
+            heldPiece.GetComponent<Shape>().ResetPosition();
+        }
+
+        Vector3 temp = heldPiece.transform.position;
+        temp.z = 0;
+        heldPiece.transform.position = temp;
+
         heldPiece = null;
     }
 
@@ -167,7 +176,7 @@ public class StatePlay : IGameState
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-        pickupOffset.z = 0;
+        pickupOffset.z = -1;
         heldPiece.transform.position = mousePos + pickupOffset;
     }
 
@@ -194,7 +203,7 @@ public class StatePlay : IGameState
             Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, Mathf.Max(settings.width, settings.height) * 1.25f, playArea.GetCenterWorldPosition(0));
             Shape s = GameObject.Instantiate(prefabGamePiece).GetComponent<Shape>();
             s.CreateMesh(data[i]);
-            s.gameObject.transform.position = new Vector3(circlePos.x, circlePos.y, 0);
+            s.SetStartPos(new Vector3(circlePos.x, circlePos.y, 0));
             shapes.Add(s);
         }
     }
@@ -247,19 +256,23 @@ public class StatePlay : IGameState
     {
         Vector2 currentGridPosition = playArea.Index2Cart(start);
         Vector2 currentPiecePosition = new Vector2(0, 0);
-        List<Vector2> tracker = new List<Vector2>();
         List<Vector2> results = new List<Vector2>();
 
         cellsClaimed[start] = true;
-        tracker.Add(currentGridPosition);
         results.Add(currentPiecePosition);
 
         for(int i = 1; i < steps; i++)
         {
-            for(int j = 0; j < 4; j++)
+            List<int> checkedDirections = new List<int>();
+
+            while(checkedDirections.Count < 4)
             {
                 // choose a random direction
-                Vector2 d = directions[Random.Range(0, 4)];
+                int di = Random.Range(0, 4);
+                if(checkedDirections.Contains(di))
+                    continue;
+
+                Vector2 d = directions[di];
                 Vector2 targetGridPos = currentGridPosition + d;
                 int targetPosIndex = playArea.Cart2Index(targetGridPos);
 
@@ -268,12 +281,18 @@ public class StatePlay : IGameState
                 {
                     currentGridPosition = targetGridPos;
                     currentPiecePosition += d;
-                    tracker.Add(currentGridPosition);
                     results.Add(currentPiecePosition);
                     cellsClaimed[targetPosIndex] = true;
                     break;
                 }
+                else
+                {
+                    checkedDirections.Add(di);
+                }
             }
+
+            if(checkedDirections.Count >= 4)
+                break;
         }
 
         return results.ToArray();

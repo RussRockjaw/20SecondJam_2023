@@ -75,6 +75,36 @@ public class PlayArea : MonoBehaviour
         return result;
     }
 
+    public bool CheckForOverlappingPieces(List<Shape> shapes)
+    {
+        int[] check = new int[grid.Size];
+
+        for(int i = 0; i < check.Length; i++)
+        {
+            check[i] = 0;
+        }
+
+        foreach(Shape s in shapes)
+        {
+            foreach(Vector2 p in s.LocalToWorld())
+            {
+                if(grid.Contains(grid.World2Cart(p)))
+                {
+                    int i = grid.World2Index(p);
+                    check[i]++;
+                }
+            }
+        }
+
+        foreach(int i in check)
+        {
+            if(i > 1)
+                return true;
+        }
+
+        return false;
+    }
+
     public bool AllCellsContained(List<Shape> shapes)
     {
         foreach(Shape s in shapes)

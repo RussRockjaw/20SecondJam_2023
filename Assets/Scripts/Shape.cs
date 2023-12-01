@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
     private Vector2[] nodePositions;
     private float pivotOffset = 0.5f;
+    private Vector3 initialPos;
     
     void Start()
     {
@@ -74,6 +73,17 @@ public class Shape : MonoBehaviour
         for(int i = 0; i < nodePositions.Length; i++)
             worldCoords[i] = transform.TransformPoint(nodePositions[i]);
         return worldCoords;
+    }
+
+    public void SetStartPos(Vector3 p)
+    {
+        initialPos = p;
+        ResetPosition();
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = initialPos;
     }
 
     public void SetNodePositions(Vector2[] positions)
