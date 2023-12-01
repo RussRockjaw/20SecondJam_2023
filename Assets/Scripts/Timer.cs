@@ -9,6 +9,14 @@ public class Timer
     private bool countdown = false;
 
     public float Current { get { return current; } private set{} }
+    public string CurrentAsString
+    { 
+        get 
+        { 
+            return (Mathf.Round(current * 100) / 100).ToString();
+        } 
+        private set{} 
+    }
 
 
 

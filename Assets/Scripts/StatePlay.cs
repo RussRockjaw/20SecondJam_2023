@@ -48,8 +48,7 @@ public class StatePlay : IGameState
         playArea.BuildPlayArea(settings.width, settings.height, this.prefabCell);
         gamePieceData = GenerateGamePieceData(settings.maxPieceSize);
         SpawnGamePieces(gamePieceData);
-        playArea.SetTimerText(gameTimer.Current);
-        //Debug.Log($"Game Time: {gameTimer.Current}");
+        playArea.SetTimerText(gameTimer.CurrentAsString);
     }
 
     public void Cleanup()
@@ -86,8 +85,8 @@ public class StatePlay : IGameState
 
         if(heldPiece == null && WeWin(containedCells))
         {
-            Debug.Log("Win!");
             gameOver = true;
+            playArea.SetTimerText($"You won with {gameTimer.CurrentAsString} seconds left!");
             // TODO/incomplete: swtich to win state
         }
     }
@@ -96,13 +95,12 @@ public class StatePlay : IGameState
     {
         if(gameTimer.Tick(Time.deltaTime))
         {
-            playArea.SetTimerText(0);
+            playArea.SetTimerText("Game Over");
             // TODO/incomplete: switch to game over state
         }
         else 
         {
-            playArea.SetTimerText(gameTimer.Current);
-            // TODO/incomplete: set the gameTimer text to the current time
+            playArea.SetTimerText(gameTimer.CurrentAsString);
         }
     }
 
@@ -147,6 +145,7 @@ public class StatePlay : IGameState
             if(hit.collider.gameObject.tag == "piece")
             {
                 heldPiece = hit.collider.gameObject.transform.parent.gameObject;
+                heldPiece.GetComponent<Shape>().SetInitialPos(heldPiece.transform.position);
                 pickupOffset = heldPiece.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
@@ -162,7 +161,7 @@ public class StatePlay : IGameState
 
         if(playArea.CheckForOverlappingPieces(shapes))
         {
-            heldPiece.GetComponent<Shape>().ResetPosition();
+            heldPiece.GetComponent<Shape>().ResetToInitialPos();
         }
 
         Vector3 temp = heldPiece.transform.position;
@@ -203,7 +202,8 @@ public class StatePlay : IGameState
             Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, Mathf.Max(settings.width, settings.height) * 1.25f, playArea.GetCenterWorldPosition(0));
             Shape s = GameObject.Instantiate(prefabGamePiece).GetComponent<Shape>();
             s.CreateMesh(data[i]);
-            s.SetStartPos(new Vector3(circlePos.x, circlePos.y, 0));
+            s.SetInitialPos(new Vector3(circlePos.x, circlePos.y, 0));
+            s.ResetToInitialPos();
             shapes.Add(s);
         }
     }

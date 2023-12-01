@@ -75,13 +75,12 @@ public class Shape : MonoBehaviour
         return worldCoords;
     }
 
-    public void SetStartPos(Vector3 p)
+    public void SetInitialPos(Vector3 p)
     {
         initialPos = p;
-        ResetPosition();
     }
 
-    public void ResetPosition()
+    public void ResetToInitialPos()
     {
         transform.position = initialPos;
     }

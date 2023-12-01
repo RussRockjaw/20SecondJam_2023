@@ -135,23 +135,15 @@ public class PlayArea : MonoBehaviour
         return false;
     }
 
-    public void SetTimerText(float t)
+    public void SetTimerText(string s)
     {
-        if(t < 0)
-        {
-            timerText.text = "0.00";
-        }
-        else 
-        {
-            timerText.text = (Mathf.Round(t * 100) / 100).ToString();
-        }
+        timerText.text = s;
     }
 
     public void SetCountDownText(float f)
     {
         float start = Mathf.Ceil(f);
         countdownText.fontSize = Mathf.Lerp(countdownSizeMin, countdownSizeMax, f / start);
-        Debug.Log(countdownText.fontSize);
         countdownText.text = (Mathf.CeilToInt(f)).ToString();
     }
 

@@ -4,111 +4,203 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-AllCellsContained	.\Assets\Scripts\PlayArea.cs	/^    public bool AllCellsContained(List<Shape> shapes)$/;"	m	class:PlayArea
-AnyCellsContained	.\Assets\Scripts\PlayArea.cs	/^    public bool AnyCellsContained(List<Shape> shapes)$/;"	m	class:PlayArea
-BinaryStep	.\Assets\Scripts\Math.cs	/^        public static double BinaryStep(double v)$/;"	m	class:KE.Math
-BuildPlayArea	.\Assets\Scripts\PlayArea.cs	/^    public void BuildPlayArea(int gridWidth, int gridHeight, GameObject prefabCell)$/;"	m	class:PlayArea
-Cart2Index	.\Assets\Scripts\Grid2D.cs	/^    public int Cart2Index(Vector2 pos)$/;"	m	class:Grid2D
-Cart2Index	.\Assets\Scripts\Grid2D.cs	/^    public int Cart2Index(int x, int y)$/;"	m	class:Grid2D
-Cart2Index	.\Assets\Scripts\Grid2D.cs	/^    static public int Cart2Index(int x, int y, int cols)$/;"	m	class:Grid2D
-Cart2Index	.\Assets\Scripts\PlayArea.cs	/^    public int Cart2Index(Vector2 p)$/;"	m	class:PlayArea
-Cart2World	.\Assets\Scripts\Grid2D.cs	/^    public Vector3 Cart2World(Vector2 gridPos)$/;"	m	class:Grid2D
-Cart2World	.\Assets\Scripts\Grid2D.cs	/^    public Vector3 Cart2World(int x, int y)$/;"	m	class:Grid2D
-Cart2World	.\Assets\Scripts\PlayArea.cs	/^    public Vector3 Cart2World(Vector2 v)$/;"	m	class:PlayArea
-CellScale	.\Assets\Scripts\Grid2D.cs	/^    public Vector2 CellScale { get { return cellScale; } private set {} }$/;"	p	class:Grid2D
-CheckContainedCells	.\Assets\Scripts\PlayArea.cs	/^    public bool[] CheckContainedCells(List<Shape> shapes)$/;"	m	class:PlayArea
-Cleanup	.\Assets\Scripts\IGameState.cs	/^    public void Cleanup();$/;"	m	interface:IGameState
-Cleanup	.\Assets\Scripts\StatePlay.cs	/^    public void Cleanup()$/;"	m	class:StatePlay
-ClearCells	.\Assets\Scripts\PlayArea.cs	/^    private void ClearCells()$/;"	m	class:PlayArea	file:
-Cols	.\Assets\Scripts\Grid2D.cs	/^    public int Cols { get { return cols; } private set {} }$/;"	p	class:Grid2D
-Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(Vector2 gridpos)$/;"	m	class:Grid2D
-Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(Vector3 pos)$/;"	m	class:Grid2D
-Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(int index)$/;"	m	class:Grid2D
-Contains	.\Assets\Scripts\Grid2D.cs	/^    public bool Contains(int x, int y)$/;"	m	class:Grid2D
-Contains	.\Assets\Scripts\PlayArea.cs	/^    public bool Contains(Vector2 pos)$/;"	m	class:PlayArea
-Contains	.\Assets\Scripts\PlayArea.cs	/^    public bool Contains(Vector3 pos)$/;"	m	class:PlayArea
-Current	.\Assets\Scripts\Timer.cs	/^    public float Current { get { return current; } private set{} }$/;"	p	class:Timer
-DropGamePiece	.\Assets\Scripts\StatePlay.cs	/^    private void DropGamePiece()$/;"	m	class:StatePlay	file:
-GenerateGamePieceData	.\Assets\Scripts\StatePlay.cs	/^    public Vector2[][] GenerateGamePieceData(int maxPieceSize)$/;"	m	class:StatePlay
-GetGrid	.\Assets\Scripts\PlayArea.cs	/^    public Grid2D GetGrid()$/;"	m	class:PlayArea
-GetPositionAroundCirlce	.\Assets\Scripts\Math.cs	/^        public static Vector2 GetPositionAroundCirlce(float angle, float radius)$/;"	m	class:KE.Math
-Grid2D	.\Assets\Scripts\Grid2D.cs	/^    public Grid2D(int cols, int rows, Vector2 cellScale, Vector2 offsetFromZero, bool zFlag = false)$/;"	m	class:Grid2D
-Grid2D	.\Assets\Scripts\Grid2D.cs	/^    public Grid2D(int cols, int rows, bool zFlag = false)$/;"	m	class:Grid2D
-Grid2D	.\Assets\Scripts\Grid2D.cs	/^public class Grid2D$/;"	c
-HandleTimer	.\Assets\Scripts\StatePlay.cs	/^    public void HandleTimer()$/;"	m	class:StatePlay
-HandleUpdate	.\Assets\Scripts\IGameState.cs	/^    public void HandleUpdate();$/;"	m	interface:IGameState
-HandleUpdate	.\Assets\Scripts\StatePlay.cs	/^    public void HandleUpdate()$/;"	m	class:StatePlay
-HighlightCells	.\Assets\Scripts\PlayArea.cs	/^    public void HighlightCells(bool[] bs)$/;"	m	class:PlayArea
-HoldGamePiece	.\Assets\Scripts\StatePlay.cs	/^    private void HoldGamePiece()$/;"	m	class:StatePlay	file:
-IGameState	.\Assets\Scripts\IGameState.cs	/^interface IGameState$/;"	i
-Index2Cart	.\Assets\Scripts\Grid2D.cs	/^    public Vector2 Index2Cart(int index)$/;"	m	class:Grid2D
-Index2Cart	.\Assets\Scripts\PlayArea.cs	/^    public Vector2 Index2Cart(int n)$/;"	m	class:PlayArea
-Index2World	.\Assets\Scripts\Grid2D.cs	/^    public Vector3 Index2World(int index)$/;"	m	class:Grid2D
-Initialize	.\Assets\Scripts\IGameState.cs	/^    public void Initialize();$/;"	m	interface:IGameState
-Initialize	.\Assets\Scripts\StatePlay.cs	/^    public void Initialize()$/;"	m	class:StatePlay
-InverseSmoothStep	.\Assets\Scripts\Math.cs	/^        public static float InverseSmoothStep(float ratio)$/;"	m	class:KE.Math
-KE	.\Assets\Scripts\Math.cs	/^namespace KE $/;"	n
-LeakyRelu	.\Assets\Scripts\Math.cs	/^        public static double LeakyRelu(double v)$/;"	m	class:KE.Math
-Math	.\Assets\Scripts\Math.cs	/^    public static class Math $/;"	c	namespace:KE
-PickupGamePiece	.\Assets\Scripts\StatePlay.cs	/^    private void PickupGamePiece()$/;"	m	class:StatePlay	file:
-PlayArea	.\Assets\Scripts\PlayArea.cs	/^public class PlayArea : MonoBehaviour$/;"	c
-RandomWalk	.\Assets\Scripts\StatePlay.cs	/^    private Vector2[] RandomWalk(int start, int steps, bool[] cellsClaimed)$/;"	m	class:StatePlay	file:
-Relu	.\Assets\Scripts\Math.cs	/^        public static double Relu(double v)$/;"	m	class:KE.Math
-Reset	.\Assets\Scripts\Timer.cs	/^    public void Reset()$/;"	m	class:Timer
-Rows	.\Assets\Scripts\Grid2D.cs	/^    public int Rows { get { return rows; } private set {} }$/;"	p	class:Grid2D
-SetState	.\Assets\Scripts\StateMachine.cs	/^    private void SetState(IGameState s)$/;"	m	class:StateMachine	file:
-Sigmoid	.\Assets\Scripts\Math.cs	/^        public static double Sigmoid(double v)$/;"	m	class:KE.Math
-SineWave	.\Assets\Scripts\Math.cs	/^        public static float SineWave(float theta, float amplitude, float baseline)$/;"	m	class:KE.Math
-Sinusoid	.\Assets\Scripts\Math.cs	/^        public static double Sinusoid(double v)$/;"	m	class:KE.Math
-Size	.\Assets\Scripts\Grid2D.cs	/^    public int Size { get { return cols * rows; } private set {} }$/;"	p	class:Grid2D
-Size	.\Assets\Scripts\PlayArea.cs	/^    public int Size()$/;"	m	class:PlayArea
-SmootherStep	.\Assets\Scripts\Math.cs	/^        public static float SmootherStep(float ratio)$/;"	m	class:KE.Math
-SoftSign	.\Assets\Scripts\Math.cs	/^        public static double SoftSign(double v)$/;"	m	class:KE.Math
-SpawnGamePieces	.\Assets\Scripts\StatePlay.cs	/^    public void SpawnGamePieces(Vector2[][] data)$/;"	m	class:StatePlay
-SplitCells	.\Assets\Scripts\StatePlay.cs	/^    private int[] SplitCells(int n, int max)$/;"	m	class:StatePlay	file:
-Start	.\Assets\Scripts\StateMachine.cs	/^    void Start()$/;"	m	class:StateMachine	file:
-StateGameOver	.\Assets\Scripts\StateMachine.cs	/^    public void StateGameOver()$/;"	m	class:StateMachine
-StateMachine	.\Assets\Scripts\StateMachine.cs	/^public class StateMachine : MonoBehaviour$/;"	c
-StatePlay	.\Assets\Scripts\StateMachine.cs	/^    public void StatePlay()$/;"	m	class:StateMachine
-StatePlay	.\Assets\Scripts\StatePlay.cs	/^    public StatePlay(int w, int h, int s, GameObject p, GameObject pap, GameObject cell)$/;"	m	class:StatePlay
-StatePlay	.\Assets\Scripts\StatePlay.cs	/^public class StatePlay : IGameState$/;"	c
-StateTitle	.\Assets\Scripts\StateMachine.cs	/^    public void StateTitle()$/;"	m	class:StateMachine
-TanH	.\Assets\Scripts\Math.cs	/^        public static double TanH(double v)$/;"	m	class:KE.Math
-Tick	.\Assets\Scripts\Timer.cs	/^    public bool Tick(float t)$/;"	m	class:Timer
-Timer	.\Assets\Scripts\Timer.cs	/^    public Timer(float max)$/;"	m	class:Timer
-Timer	.\Assets\Scripts\Timer.cs	/^public class Timer$/;"	c
-Update	.\Assets\Scripts\StateMachine.cs	/^    void Update()$/;"	m	class:StateMachine	file:
-WeWin	.\Assets\Scripts\StatePlay.cs	/^    private bool WeWin(bool[] cells)$/;"	m	class:StatePlay	file:
-World2Cart	.\Assets\Scripts\Grid2D.cs	/^    public Vector2 World2Cart(Vector3 worldPos)$/;"	m	class:Grid2D
-World2Cart	.\Assets\Scripts\PlayArea.cs	/^    public Vector2 World2Cart(Vector3 v)$/;"	m	class:PlayArea
-World2Index	.\Assets\Scripts\Grid2D.cs	/^    public int World2Index(Vector3 pos)$/;"	m	class:Grid2D
-cellScale	.\Assets\Scripts\Grid2D.cs	/^    private Vector2 cellScale;$/;"	f	class:Grid2D	file:
-cells	.\Assets\Scripts\PlayArea.cs	/^    private GameObject[] cells;$/;"	f	class:PlayArea	file:
-cols	.\Assets\Scripts\Grid2D.cs	/^    private int cols;$/;"	f	class:Grid2D	file:
-current	.\Assets\Scripts\Timer.cs	/^    private float current;$/;"	f	class:Timer	file:
-currentState	.\Assets\Scripts\StateMachine.cs	/^    private IGameState currentState = null;$/;"	f	class:StateMachine	file:
-directions	.\Assets\Scripts\StatePlay.cs	/^    private Vector2[] directions = new Vector2[] $/;"	f	class:StatePlay	file:
-gamePieceData	.\Assets\Scripts\StatePlay.cs	/^    private Vector2[][] gamePieceData;$/;"	f	class:StatePlay	file:
-grid	.\Assets\Scripts\PlayArea.cs	/^    private Grid2D grid;$/;"	f	class:PlayArea	file:
-height	.\Assets\Scripts\StatePlay.cs	/^    private int height;$/;"	f	class:StatePlay	file:
-heldPiece	.\Assets\Scripts\StatePlay.cs	/^    private GameObject heldPiece;$/;"	f	class:StatePlay	file:
-max	.\Assets\Scripts\Timer.cs	/^    private float max;$/;"	f	class:Timer	file:
-maxGamePieceSize	.\Assets\Scripts\StatePlay.cs	/^    private int maxGamePieceSize;$/;"	f	class:StatePlay	file:
-maxPieceSize	.\Assets\Scripts\StateMachine.cs	/^    public int maxPieceSize = 5;$/;"	f	class:StateMachine
-offsetFromZero	.\Assets\Scripts\Grid2D.cs	/^    private Vector2 offsetFromZero; $/;"	f	class:Grid2D	file:
-pickupOffset	.\Assets\Scripts\StatePlay.cs	/^    private Vector3 pickupOffset;$/;"	f	class:StatePlay	file:
-playArea	.\Assets\Scripts\StatePlay.cs	/^    private PlayArea playArea;$/;"	f	class:StatePlay	file:
-playAreaH	.\Assets\Scripts\StateMachine.cs	/^    public int playAreaH = 5;$/;"	f	class:StateMachine
-playAreaW	.\Assets\Scripts\StateMachine.cs	/^    public int playAreaW = 5;$/;"	f	class:StateMachine
-prefabCell	.\Assets\Scripts\StateMachine.cs	/^    public GameObject prefabCell;$/;"	f	class:StateMachine
-prefabCell	.\Assets\Scripts\StatePlay.cs	/^    private GameObject prefabCell;$/;"	f	class:StatePlay	file:
-prefabGamePiece	.\Assets\Scripts\StateMachine.cs	/^    public GameObject prefabGamePiece;$/;"	f	class:StateMachine
-prefabGamePiece	.\Assets\Scripts\StatePlay.cs	/^    private GameObject prefabGamePiece;$/;"	f	class:StatePlay	file:
-prefabPlayArea	.\Assets\Scripts\StateMachine.cs	/^    public GameObject prefabPlayArea;$/;"	f	class:StateMachine
-prefabPlayArea	.\Assets\Scripts\StatePlay.cs	/^    private GameObject prefabPlayArea;$/;"	f	class:StatePlay	file:
-rows	.\Assets\Scripts\Grid2D.cs	/^    private int rows;$/;"	f	class:Grid2D	file:
-shapes	.\Assets\Scripts\StatePlay.cs	/^    private List<Shape> shapes;$/;"	f	class:StatePlay	file:
-timeMax	.\Assets\Scripts\StatePlay.cs	/^    private float timeMax = 20.0f;$/;"	f	class:StatePlay	file:
-timer	.\Assets\Scripts\StatePlay.cs	/^    private Timer timer;$/;"	f	class:StatePlay	file:
-useZ	.\Assets\Scripts\Grid2D.cs	/^    private bool useZ = false;$/;"	f	class:Grid2D	file:
-width	.\Assets\Scripts\StatePlay.cs	/^    private int width;$/;"	f	class:StatePlay	file:
+AllCellsContained	./Assets/Scripts/PlayArea.cs	/^    public bool AllCellsContained(List<Shape> shapes)$/;"	m	class:PlayArea
+AnyCellsContained	./Assets/Scripts/PlayArea.cs	/^    public bool AnyCellsContained(List<Shape> shapes)$/;"	m	class:PlayArea
+Awake	./Assets/Scripts/StateMachine.cs	/^    void Awake()$/;"	m	class:StateMachine	file:
+BinaryStep	./Assets/Scripts/Math.cs	/^        public static double BinaryStep(double v)$/;"	m	class:KE.Math
+BuildPlayArea	./Assets/Scripts/PlayArea.cs	/^    public void BuildPlayArea(int gridWidth, int gridHeight, GameObject prefabCell)$/;"	m	class:PlayArea
+Cart2Index	./Assets/Scripts/Grid2D.cs	/^    public int Cart2Index(Vector2 pos)$/;"	m	class:Grid2D
+Cart2Index	./Assets/Scripts/Grid2D.cs	/^    public int Cart2Index(int x, int y)$/;"	m	class:Grid2D
+Cart2Index	./Assets/Scripts/Grid2D.cs	/^    static public int Cart2Index(int x, int y, int cols)$/;"	m	class:Grid2D
+Cart2Index	./Assets/Scripts/PlayArea.cs	/^    public int Cart2Index(Vector2 p)$/;"	m	class:PlayArea
+Cart2World	./Assets/Scripts/Grid2D.cs	/^    public Vector3 Cart2World(Vector2 gridPos)$/;"	m	class:Grid2D
+Cart2World	./Assets/Scripts/Grid2D.cs	/^    public Vector3 Cart2World(int x, int y)$/;"	m	class:Grid2D
+Cart2World	./Assets/Scripts/PlayArea.cs	/^    public Vector3 Cart2World(Vector2 v)$/;"	m	class:PlayArea
+CellScale	./Assets/Scripts/Grid2D.cs	/^    public Vector2 CellScale { get { return cellScale; } private set {} }$/;"	p	class:Grid2D
+CheckContainedCells	./Assets/Scripts/PlayArea.cs	/^    public bool[] CheckContainedCells(List<Shape> shapes)$/;"	m	class:PlayArea
+CheckForOverlappingPieces	./Assets/Scripts/PlayArea.cs	/^    public bool CheckForOverlappingPieces(List<Shape> shapes)$/;"	m	class:PlayArea
+Cleanup	./Assets/Scripts/IGameState.cs	/^    public void Cleanup();$/;"	m	interface:IGameState
+Cleanup	./Assets/Scripts/StateMainMenu.cs	/^    public void Cleanup()$/;"	m	class:StateMainMenu
+Cleanup	./Assets/Scripts/StateOptions.cs	/^    public void Cleanup()$/;"	m	class:StateOptions
+Cleanup	./Assets/Scripts/StatePlay.cs	/^    public void Cleanup()$/;"	m	class:StatePlay
+ClearCells	./Assets/Scripts/PlayArea.cs	/^    private void ClearCells()$/;"	m	class:PlayArea	file:
+Cols	./Assets/Scripts/Grid2D.cs	/^    public int Cols { get { return cols; } private set {} }$/;"	p	class:Grid2D
+ConfirmButton	./Assets/Scripts/StateOptions.cs	/^    public void ConfirmButton()$/;"	m	class:StateOptions
+Contains	./Assets/Scripts/Grid2D.cs	/^    public bool Contains(Vector2 gridpos)$/;"	m	class:Grid2D
+Contains	./Assets/Scripts/Grid2D.cs	/^    public bool Contains(Vector3 pos)$/;"	m	class:Grid2D
+Contains	./Assets/Scripts/Grid2D.cs	/^    public bool Contains(int index)$/;"	m	class:Grid2D
+Contains	./Assets/Scripts/Grid2D.cs	/^    public bool Contains(int x, int y)$/;"	m	class:Grid2D
+Contains	./Assets/Scripts/PlayArea.cs	/^    public bool Contains(Vector2 pos)$/;"	m	class:PlayArea
+Contains	./Assets/Scripts/PlayArea.cs	/^    public bool Contains(Vector3 pos)$/;"	m	class:PlayArea
+Copy	./Assets/Scripts/Settings.cs	/^    public Settings Copy()$/;"	m	struct:Settings
+CountDown	./Assets/Scripts/StatePlay.cs	/^    private void CountDown()$/;"	m	class:StatePlay	file:
+CreateMesh	./Assets/Scripts/Shape.cs	/^    public void CreateMesh(Vector2[] nodePositions)$/;"	m	class:Shape
+Current	./Assets/Scripts/Timer.cs	/^    public float Current { get { return current; } private set{} }$/;"	p	class:Timer
+DropGamePiece	./Assets/Scripts/StatePlay.cs	/^    private void DropGamePiece()$/;"	m	class:StatePlay	file:
+GenerateGamePieceData	./Assets/Scripts/StatePlay.cs	/^    public Vector2[][] GenerateGamePieceData(int maxPieceSize)$/;"	m	class:StatePlay
+GetCenterWorldPosition	./Assets/Scripts/PlayArea.cs	/^    public Vector3 GetCenterWorldPosition(float z)$/;"	m	class:PlayArea
+GetGrid	./Assets/Scripts/PlayArea.cs	/^    public Grid2D GetGrid()$/;"	m	class:PlayArea
+GetNodePositions	./Assets/Scripts/Shape.cs	/^    public Vector2[] GetNodePositions()$/;"	m	class:Shape
+GetPositionAroundCirlce	./Assets/Scripts/Math.cs	/^        public static Vector2 GetPositionAroundCirlce(float angle, float radius, Vector2 center)$/;"	m	class:KE.Math
+Grid2D	./Assets/Scripts/Grid2D.cs	/^    public Grid2D(int cols, int rows, Vector2 cellScale, Vector2 offsetFromZero, bool zFlag = false)$/;"	m	class:Grid2D
+Grid2D	./Assets/Scripts/Grid2D.cs	/^    public Grid2D(int cols, int rows, bool zFlag = false)$/;"	m	class:Grid2D
+Grid2D	./Assets/Scripts/Grid2D.cs	/^public class Grid2D$/;"	c
+HandleGameTimer	./Assets/Scripts/StatePlay.cs	/^    public void HandleGameTimer()$/;"	m	class:StatePlay
+HandleInput	./Assets/Scripts/StatePlay.cs	/^    private void HandleInput()$/;"	m	class:StatePlay	file:
+HandleUpdate	./Assets/Scripts/IGameState.cs	/^    public void HandleUpdate();$/;"	m	interface:IGameState
+HandleUpdate	./Assets/Scripts/StateMainMenu.cs	/^    public void HandleUpdate()$/;"	m	class:StateMainMenu
+HandleUpdate	./Assets/Scripts/StateOptions.cs	/^    public void HandleUpdate()$/;"	m	class:StateOptions
+HandleUpdate	./Assets/Scripts/StatePlay.cs	/^    public void HandleUpdate()$/;"	m	class:StatePlay
+HeightSliderChange	./Assets/Scripts/StateOptions.cs	/^    public void HeightSliderChange()$/;"	m	class:StateOptions
+HighlightCells	./Assets/Scripts/PlayArea.cs	/^    public void HighlightCells(bool[] bs)$/;"	m	class:PlayArea
+HoldGamePiece	./Assets/Scripts/StatePlay.cs	/^    private void HoldGamePiece()$/;"	m	class:StatePlay	file:
+IGameState	./Assets/Scripts/IGameState.cs	/^interface IGameState$/;"	i
+Index2Cart	./Assets/Scripts/Grid2D.cs	/^    public Vector2 Index2Cart(int index)$/;"	m	class:Grid2D
+Index2Cart	./Assets/Scripts/PlayArea.cs	/^    public Vector2 Index2Cart(int n)$/;"	m	class:PlayArea
+Index2World	./Assets/Scripts/Grid2D.cs	/^    public Vector3 Index2World(int index)$/;"	m	class:Grid2D
+Initialize	./Assets/Scripts/IGameState.cs	/^    public void Initialize();$/;"	m	interface:IGameState
+Initialize	./Assets/Scripts/StateMainMenu.cs	/^    public void Initialize()$/;"	m	class:StateMainMenu
+Initialize	./Assets/Scripts/StateOptions.cs	/^    public void Initialize()$/;"	m	class:StateOptions
+Initialize	./Assets/Scripts/StatePlay.cs	/^    public void Initialize()$/;"	m	class:StatePlay
+InverseSmoothStep	./Assets/Scripts/Math.cs	/^        public static float InverseSmoothStep(float ratio)$/;"	m	class:KE.Math
+KE	./Assets/Scripts/Math.cs	/^namespace KE $/;"	n
+LeakyRelu	./Assets/Scripts/Math.cs	/^        public static double LeakyRelu(double v)$/;"	m	class:KE.Math
+LocalToWorld	./Assets/Scripts/Shape.cs	/^    public Vector2[] LocalToWorld()$/;"	m	class:Shape
+MainMenu	./Assets/Scripts/MainMenu.cs	/^public class MainMenu : MonoBehaviour$/;"	c
+Math	./Assets/Scripts/Math.cs	/^    public static class Math $/;"	c	namespace:KE
+Options	./Assets/Scripts/Options.cs	/^public class Options : MonoBehaviour$/;"	c
+OptionsButton	./Assets/Scripts/StateMainMenu.cs	/^    public void OptionsButton()$/;"	m	class:StateMainMenu
+PickupGamePiece	./Assets/Scripts/StatePlay.cs	/^    private void PickupGamePiece()$/;"	m	class:StatePlay	file:
+PlayArea	./Assets/Scripts/PlayArea.cs	/^public class PlayArea : MonoBehaviour$/;"	c
+RandomWalk	./Assets/Scripts/StatePlay.cs	/^    private Vector2[] RandomWalk(int start, int steps, bool[] cellsClaimed)$/;"	m	class:StatePlay	file:
+Relu	./Assets/Scripts/Math.cs	/^        public static double Relu(double v)$/;"	m	class:KE.Math
+Reset	./Assets/Scripts/Timer.cs	/^    public void Reset()$/;"	m	class:Timer
+ResetToInitialPos	./Assets/Scripts/Shape.cs	/^    public void ResetToInitialPos()$/;"	m	class:Shape
+ReturnButton	./Assets/Scripts/StateOptions.cs	/^    public void ReturnButton()$/;"	m	class:StateOptions
+Rows	./Assets/Scripts/Grid2D.cs	/^    public int Rows { get { return rows; } private set {} }$/;"	p	class:Grid2D
+SetCountDownText	./Assets/Scripts/PlayArea.cs	/^    public void SetCountDownText(float f)$/;"	m	class:PlayArea
+SetDefaultGameSettings	./Assets/Scripts/StateMachine.cs	/^    public void SetDefaultGameSettings()$/;"	m	class:StateMachine
+SetGameSettings	./Assets/Scripts/StateMachine.cs	/^    public void SetGameSettings(Settings s)$/;"	m	class:StateMachine
+SetInitialPos	./Assets/Scripts/Shape.cs	/^    public void SetInitialPos(Vector3 p)$/;"	m	class:Shape
+SetNodePositions	./Assets/Scripts/Shape.cs	/^    public void SetNodePositions(Vector2[] positions)$/;"	m	class:Shape
+SetState	./Assets/Scripts/StateMachine.cs	/^    private void SetState(IGameState s)$/;"	m	class:StateMachine	file:
+SetTimerText	./Assets/Scripts/PlayArea.cs	/^    public void SetTimerText(float t)$/;"	m	class:PlayArea
+Settings	./Assets/Scripts/Settings.cs	/^    public Settings(int time, int width, int height, int maxPieceSize)$/;"	m	struct:Settings
+Settings	./Assets/Scripts/Settings.cs	/^public struct Settings$/;"	s
+Setup	./Assets/Scripts/MainMenu.cs	/^    public void Setup()$/;"	m	class:MainMenu
+Setup	./Assets/Scripts/Options.cs	/^    public void Setup()$/;"	m	class:Options
+Shape	./Assets/Scripts/Shape.cs	/^public class Shape : MonoBehaviour$/;"	c
+Sigmoid	./Assets/Scripts/Math.cs	/^        public static double Sigmoid(double v)$/;"	m	class:KE.Math
+SineWave	./Assets/Scripts/Math.cs	/^        public static float SineWave(float theta, float amplitude, float baseline)$/;"	m	class:KE.Math
+Sinusoid	./Assets/Scripts/Math.cs	/^        public static double Sinusoid(double v)$/;"	m	class:KE.Math
+Size	./Assets/Scripts/Grid2D.cs	/^    public int Size { get { return cols * rows; } private set {} }$/;"	p	class:Grid2D
+Size	./Assets/Scripts/PlayArea.cs	/^    public int Size()$/;"	m	class:PlayArea
+SmootherStep	./Assets/Scripts/Math.cs	/^        public static float SmootherStep(float ratio)$/;"	m	class:KE.Math
+SoftSign	./Assets/Scripts/Math.cs	/^        public static double SoftSign(double v)$/;"	m	class:KE.Math
+SpawnGamePieces	./Assets/Scripts/StatePlay.cs	/^    public void SpawnGamePieces(Vector2[][] data)$/;"	m	class:StatePlay
+SplitCells	./Assets/Scripts/StatePlay.cs	/^    private int[] SplitCells(int n, int max)$/;"	m	class:StatePlay	file:
+Start	./Assets/Scripts/MainMenu.cs	/^    void Start()$/;"	m	class:MainMenu	file:
+Start	./Assets/Scripts/Options.cs	/^    void Start()$/;"	m	class:Options	file:
+Start	./Assets/Scripts/Shape.cs	/^    void Start()$/;"	m	class:Shape	file:
+StartButton	./Assets/Scripts/StateMainMenu.cs	/^    public void StartButton()$/;"	m	class:StateMainMenu
+StateGameOver	./Assets/Scripts/StateMachine.cs	/^    public void StateGameOver()$/;"	m	class:StateMachine
+StateMachine	./Assets/Scripts/StateMachine.cs	/^public class StateMachine : MonoBehaviour$/;"	c
+StateMainMenu	./Assets/Scripts/StateMainMenu.cs	/^    public StateMainMenu(StateMachine s, GameObject g)$/;"	m	class:StateMainMenu
+StateMainMenu	./Assets/Scripts/StateMainMenu.cs	/^public class StateMainMenu : IGameState$/;"	c
+StateOptions	./Assets/Scripts/StateMachine.cs	/^    public void StateOptions()$/;"	m	class:StateMachine
+StateOptions	./Assets/Scripts/StateOptions.cs	/^    public StateOptions(StateMachine s, GameObject obj, Settings set)$/;"	m	class:StateOptions
+StateOptions	./Assets/Scripts/StateOptions.cs	/^public class StateOptions : IGameState$/;"	c
+StatePlay	./Assets/Scripts/StateMachine.cs	/^    public void StatePlay()$/;"	m	class:StateMachine
+StatePlay	./Assets/Scripts/StatePlay.cs	/^    public StatePlay(StateMachine sm, Settings set, GameObject pp, GameObject ppa, GameObject cell)$/;"	m	class:StatePlay
+StatePlay	./Assets/Scripts/StatePlay.cs	/^public class StatePlay : IGameState$/;"	c
+StateTitle	./Assets/Scripts/StateMachine.cs	/^    public void StateTitle()$/;"	m	class:StateMachine
+TanH	./Assets/Scripts/Math.cs	/^        public static double TanH(double v)$/;"	m	class:KE.Math
+Tick	./Assets/Scripts/Timer.cs	/^    public bool Tick(float t)$/;"	m	class:Timer
+Timer	./Assets/Scripts/Timer.cs	/^    public Timer(float max, bool countdown = false)$/;"	m	class:Timer
+Timer	./Assets/Scripts/Timer.cs	/^public class Timer$/;"	c
+TimerSliderChange	./Assets/Scripts/StateOptions.cs	/^    public void TimerSliderChange()$/;"	m	class:StateOptions
+TurnOffCountDown	./Assets/Scripts/PlayArea.cs	/^    public void TurnOffCountDown()$/;"	m	class:PlayArea
+TurnOnCountDown	./Assets/Scripts/PlayArea.cs	/^    public void TurnOnCountDown()$/;"	m	class:PlayArea
+Update	./Assets/Scripts/MainMenu.cs	/^    void Update()$/;"	m	class:MainMenu	file:
+Update	./Assets/Scripts/Options.cs	/^    void Update()$/;"	m	class:Options	file:
+Update	./Assets/Scripts/StateMachine.cs	/^    void Update()$/;"	m	class:StateMachine	file:
+WeWin	./Assets/Scripts/StatePlay.cs	/^    private bool WeWin(bool[] cells)$/;"	m	class:StatePlay	file:
+WidthSliderChange	./Assets/Scripts/StateOptions.cs	/^    public void WidthSliderChange()$/;"	m	class:StateOptions
+World2Cart	./Assets/Scripts/Grid2D.cs	/^    public Vector2 World2Cart(Vector3 worldPos)$/;"	m	class:Grid2D
+World2Cart	./Assets/Scripts/PlayArea.cs	/^    public Vector2 World2Cart(Vector3 v)$/;"	m	class:PlayArea
+World2Index	./Assets/Scripts/Grid2D.cs	/^    public int World2Index(Vector3 pos)$/;"	m	class:Grid2D
+buttonOptionsGO	./Assets/Scripts/MainMenu.cs	/^    public GameObject buttonOptionsGO;$/;"	f	class:MainMenu
+buttonStartGO	./Assets/Scripts/MainMenu.cs	/^    public GameObject buttonStartGO;$/;"	f	class:MainMenu
+cellScale	./Assets/Scripts/Grid2D.cs	/^    private Vector2 cellScale;$/;"	f	class:Grid2D	file:
+cells	./Assets/Scripts/PlayArea.cs	/^    private GameObject[] cells;$/;"	f	class:PlayArea	file:
+cols	./Assets/Scripts/Grid2D.cs	/^    private int cols;$/;"	f	class:Grid2D	file:
+confirmButton	./Assets/Scripts/Options.cs	/^    public Button confirmButton;$/;"	f	class:Options
+confirmButtonGO	./Assets/Scripts/Options.cs	/^    public GameObject confirmButtonGO;$/;"	f	class:Options
+countdown	./Assets/Scripts/Timer.cs	/^    private bool countdown = false;$/;"	f	class:Timer	file:
+countdownSizeMax	./Assets/Scripts/PlayArea.cs	/^    private float countdownSizeMax = 36;$/;"	f	class:PlayArea	file:
+countdownSizeMin	./Assets/Scripts/PlayArea.cs	/^    private float countdownSizeMin = 5;$/;"	f	class:PlayArea	file:
+countdownText	./Assets/Scripts/PlayArea.cs	/^    public TextMeshProUGUI countdownText;$/;"	f	class:PlayArea
+countdownTimer	./Assets/Scripts/StatePlay.cs	/^    private Timer countdownTimer;$/;"	f	class:StatePlay	file:
+current	./Assets/Scripts/Timer.cs	/^    private float current;$/;"	f	class:Timer	file:
+currentState	./Assets/Scripts/StateMachine.cs	/^    private IGameState currentState = null;$/;"	f	class:StateMachine	file:
+defaultMaxPieceSize	./Assets/Scripts/StateMachine.cs	/^    public int defaultMaxPieceSize = 5;$/;"	f	class:StateMachine
+defaultPlayAreaH	./Assets/Scripts/StateMachine.cs	/^    public int defaultPlayAreaH = 3;$/;"	f	class:StateMachine
+defaultPlayAreaW	./Assets/Scripts/StateMachine.cs	/^    public int defaultPlayAreaW = 3;$/;"	f	class:StateMachine
+defaultSettings	./Assets/Scripts/StateMachine.cs	/^    private Settings defaultSettings;$/;"	f	class:StateMachine	file:
+defaultSettings	./Assets/Scripts/StateOptions.cs	/^    private Settings defaultSettings;$/;"	f	class:StateOptions	file:
+defaultTime	./Assets/Scripts/StateMachine.cs	/^    public int defaultTime = 20;$/;"	f	class:StateMachine
+directions	./Assets/Scripts/StatePlay.cs	/^    private Vector2[] directions = new Vector2[] $/;"	f	class:StatePlay	file:
+gameOver	./Assets/Scripts/StatePlay.cs	/^    private bool gameOver;$/;"	f	class:StatePlay	file:
+gamePieceData	./Assets/Scripts/StatePlay.cs	/^    private Vector2[][] gamePieceData;$/;"	f	class:StatePlay	file:
+gameSettings	./Assets/Scripts/StateMachine.cs	/^    private Settings gameSettings;$/;"	f	class:StateMachine	file:
+gameStarted	./Assets/Scripts/StatePlay.cs	/^    private bool gameStarted;$/;"	f	class:StatePlay	file:
+gameTimer	./Assets/Scripts/StatePlay.cs	/^    private Timer gameTimer;$/;"	f	class:StatePlay	file:
+grid	./Assets/Scripts/PlayArea.cs	/^    private Grid2D grid;$/;"	f	class:PlayArea	file:
+height	./Assets/Scripts/Settings.cs	/^    public int height;$/;"	f	struct:Settings
+heightSlider	./Assets/Scripts/Options.cs	/^    public Slider heightSlider;$/;"	f	class:Options
+heightSliderGO	./Assets/Scripts/Options.cs	/^    public GameObject heightSliderGO;$/;"	f	class:Options
+heldPiece	./Assets/Scripts/StatePlay.cs	/^    private GameObject heldPiece;$/;"	f	class:StatePlay	file:
+initialPos	./Assets/Scripts/Shape.cs	/^    private Vector3 initialPos;$/;"	f	class:Shape	file:
+labelHeightValue	./Assets/Scripts/Options.cs	/^    public GameObject labelHeightValue;$/;"	f	class:Options
+labelTimerValue	./Assets/Scripts/Options.cs	/^    public GameObject labelTimerValue;$/;"	f	class:Options
+labelWidthValue	./Assets/Scripts/Options.cs	/^    public GameObject labelWidthValue;$/;"	f	class:Options
+max	./Assets/Scripts/Timer.cs	/^    private float max;$/;"	f	class:Timer	file:
+maxPieceSize	./Assets/Scripts/Settings.cs	/^    public int maxPieceSize;$/;"	f	struct:Settings
+menu	./Assets/Scripts/StateMainMenu.cs	/^    private MainMenu menu;$/;"	f	class:StateMainMenu	file:
+nodePositions	./Assets/Scripts/Shape.cs	/^    private Vector2[] nodePositions;$/;"	f	class:Shape	file:
+offset	./Assets/Scripts/PlayArea.cs	/^    private Vector2 offset;$/;"	f	class:PlayArea	file:
+offsetFromZero	./Assets/Scripts/Grid2D.cs	/^    private Vector2 offsetFromZero; $/;"	f	class:Grid2D	file:
+options	./Assets/Scripts/StateOptions.cs	/^    private Options options;$/;"	f	class:StateOptions	file:
+optionsButton	./Assets/Scripts/MainMenu.cs	/^    public Button optionsButton;$/;"	f	class:MainMenu
+pickupOffset	./Assets/Scripts/StatePlay.cs	/^    private Vector3 pickupOffset;$/;"	f	class:StatePlay	file:
+pivotOffset	./Assets/Scripts/Shape.cs	/^    private float pivotOffset = 0.5f;$/;"	f	class:Shape	file:
+playArea	./Assets/Scripts/StatePlay.cs	/^    private PlayArea playArea;$/;"	f	class:StatePlay	file:
+prefabCell	./Assets/Scripts/StateMachine.cs	/^    public GameObject prefabCell;$/;"	f	class:StateMachine
+prefabCell	./Assets/Scripts/StatePlay.cs	/^    private GameObject prefabCell;$/;"	f	class:StatePlay	file:
+prefabGamePiece	./Assets/Scripts/StateMachine.cs	/^    public GameObject prefabGamePiece;$/;"	f	class:StateMachine
+prefabGamePiece	./Assets/Scripts/StatePlay.cs	/^    private GameObject prefabGamePiece;$/;"	f	class:StatePlay	file:
+prefabMainMenu	./Assets/Scripts/StateMachine.cs	/^    public GameObject prefabMainMenu;$/;"	f	class:StateMachine
+prefabMenu	./Assets/Scripts/StateMainMenu.cs	/^    private GameObject prefabMenu;$/;"	f	class:StateMainMenu	file:
+prefabOptions	./Assets/Scripts/StateMachine.cs	/^    public GameObject prefabOptions;$/;"	f	class:StateMachine
+prefabOptions	./Assets/Scripts/StateOptions.cs	/^    private GameObject prefabOptions;$/;"	f	class:StateOptions	file:
+prefabPlayArea	./Assets/Scripts/StateMachine.cs	/^    public GameObject prefabPlayArea;$/;"	f	class:StateMachine
+prefabPlayArea	./Assets/Scripts/StatePlay.cs	/^    private GameObject prefabPlayArea;$/;"	f	class:StatePlay	file:
+returnButton	./Assets/Scripts/Options.cs	/^    public Button returnButton;$/;"	f	class:Options
+returnButtonGO	./Assets/Scripts/Options.cs	/^    public GameObject returnButtonGO;$/;"	f	class:Options
+rows	./Assets/Scripts/Grid2D.cs	/^    private int rows;$/;"	f	class:Grid2D	file:
+settings	./Assets/Scripts/StatePlay.cs	/^    private Settings settings;$/;"	f	class:StatePlay	file:
+shapes	./Assets/Scripts/StatePlay.cs	/^    private List<Shape> shapes;$/;"	f	class:StatePlay	file:
+sm	./Assets/Scripts/StateMainMenu.cs	/^    private StateMachine sm;$/;"	f	class:StateMainMenu	file:
+sm	./Assets/Scripts/StateOptions.cs	/^    private StateMachine sm;$/;"	f	class:StateOptions	file:
+startButton	./Assets/Scripts/MainMenu.cs	/^    public Button startButton;$/;"	f	class:MainMenu
+time	./Assets/Scripts/Settings.cs	/^    public int time;$/;"	f	struct:Settings
+timerSlider	./Assets/Scripts/Options.cs	/^    public Slider timerSlider;$/;"	f	class:Options
+timerSliderGO	./Assets/Scripts/Options.cs	/^    public GameObject timerSliderGO;$/;"	f	class:Options
+timerText	./Assets/Scripts/PlayArea.cs	/^    public TextMeshProUGUI timerText;$/;"	f	class:PlayArea
+useZ	./Assets/Scripts/Grid2D.cs	/^    private bool useZ = false;$/;"	f	class:Grid2D	file:
+width	./Assets/Scripts/Settings.cs	/^    public int width;$/;"	f	struct:Settings
+widthSlider	./Assets/Scripts/Options.cs	/^    public Slider widthSlider;$/;"	f	class:Options
+widthSliderGO	./Assets/Scripts/Options.cs	/^    public GameObject widthSliderGO;$/;"	f	class:Options
+zoomMax	./Assets/Scripts/StatePlay.cs	/^    private float zoomMax = -20.0f;$/;"	f	class:StatePlay	file:
+zoomMin	./Assets/Scripts/StatePlay.cs	/^    private float zoomMin = -10.0f;$/;"	f	class:StatePlay	file:
+zoomSense	./Assets/Scripts/StatePlay.cs	/^    private float zoomSense = 10.0f;$/;"	f	class:StatePlay	file:
