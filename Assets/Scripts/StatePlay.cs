@@ -27,19 +27,19 @@ public class StatePlay : IGameState
     private float zoomMin = -10.0f;
     private float zoomMax = -20.0f;
     private float zoomSense = 10.0f;
+    private StateMachine sm;
 
 
 
     public StatePlay(StateMachine sm, Settings set, GameObject pp, GameObject ppa, GameObject cell)
     {
+        this.sm = sm;
         settings = set;
         prefabGamePiece = pp;
         prefabPlayArea = ppa;
         prefabCell = cell;
         gameTimer = new Timer((float)settings.time, true);
         countdownTimer = new Timer(3, true);
-        gameStarted = false;
-        gameOver = false;
     }
 
     public void Initialize()
@@ -49,6 +49,12 @@ public class StatePlay : IGameState
         gamePieceData = GenerateGamePieceData(settings.maxPieceSize);
         SpawnGamePieces(gamePieceData);
         playArea.SetTimerText(gameTimer.CurrentAsString);
+        playArea.SetExtraText("");
+        playArea.TurnOnCountDown();
+        gameTimer.Reset();
+        countdownTimer.Reset();
+        gameStarted = false;
+        gameOver = false;
     }
 
     public void Cleanup()
@@ -58,6 +64,12 @@ public class StatePlay : IGameState
         {
             Object.Destroy(shapes[i].gameObject);
         }
+    }
+
+    private void Restart()
+    {
+        Cleanup();
+        Initialize();
     }
 
     public void HandleUpdate()
@@ -86,7 +98,8 @@ public class StatePlay : IGameState
         if(heldPiece == null && WeWin(containedCells))
         {
             gameOver = true;
-            playArea.SetTimerText($"You won with {gameTimer.CurrentAsString} seconds left!");
+            playArea.SetTimerText($"You finished with {gameTimer.CurrentAsString} seconds left!");
+            playArea.SetExtraText("Press 'R' to restart or 'ESC' to quit");
             // TODO/incomplete: swtich to win state
         }
     }
@@ -115,6 +128,18 @@ public class StatePlay : IGameState
         if(!gameStarted)
         {
             return;
+        }
+
+        if(gameOver)
+        {
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                Restart();
+            }
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                sm.StateTitle();
+            }
         }
 
         if(heldPiece == null && Input.GetMouseButtonDown(0))
@@ -200,6 +225,8 @@ public class StatePlay : IGameState
         for(int i = 0; i < data.Length; i++)
         {
             Vector2 circlePos = KE.Math.GetPositionAroundCirlce(degSplit * i, Mathf.Max(settings.width, settings.height) * 1.25f, playArea.GetCenterWorldPosition(0));
+            circlePos.x -= 1;
+            circlePos.y -= 1;
             Shape s = GameObject.Instantiate(prefabGamePiece).GetComponent<Shape>();
             s.CreateMesh(data[i]);
             s.SetInitialPos(new Vector3(circlePos.x, circlePos.y, 0));

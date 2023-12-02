@@ -11,6 +11,7 @@ public class PlayArea : MonoBehaviour
 
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI countdownText;
+    public TextMeshProUGUI extraText;
 
     private float countdownSizeMax = 36;
     private float countdownSizeMin = 5;
@@ -133,6 +134,11 @@ public class PlayArea : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void SetExtraText(string s)
+    {
+        extraText.text = s;
     }
 
     public void SetTimerText(string s)
